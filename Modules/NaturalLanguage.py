@@ -6,7 +6,7 @@ class NaturalLanguageObject:
     _Identifiers = [',', '.', 'VBZ', 'VBP', 'VBN', 'VBG', 'VBD', 'VB', 'RP', 'RBS',
                     'RB', 'RBR', 'PDT', 'NNS', 'NNPS', 'NNP', 'NN', 'MD', 'SYM', 'JJS',
                     'JJR', 'JJ', 'WDT', 'WP', 'WP$', 'WRB', '$', ':', 'CC', 'CD', 'DT',
-                    'TO', 'EX', 'UH', 'FW', 'IN', 'POS', 'PRP', 'WDT', 'PRP$']
+                    'TO', 'EX', 'UH', 'FW', 'IN', 'POS', 'PRP', 'WDT', 'PRP$', "''", "``", "LS"]
     sentenceList = None
     sentence = ""
     sentenceTokenList = ""
@@ -24,14 +24,16 @@ class NaturalLanguageObject:
     def normaliseSentenceTokens(self, inSentenceTokenList):
         normalisedSentence = []
         # unit product of all of the identifiers
-        normalisedUnit = (1/len(self._Identifiers))
+        normalisedUnit = float((1/len(self._Identifiers)))
 
         for index, token in enumerate(inSentenceTokenList):
             for index2, tokenIdentifier in enumerate(self._Identifiers):
                 # if token is equel to one of the identifiers
                 if inSentenceTokenList[index] == self._Identifiers[index2]:
                     # times unit by the index position
-                    normalisedSentence.append(((index2+1) * normalisedUnit))
+                    # Limits to 3 decimal places
+                    tmpNormal = ((index2+1) * normalisedUnit)
+                    normalisedSentence.append(float(tmpNormal))
         return normalisedSentence
 
     def tokeniseNormals(self, inNormalsList):
@@ -223,18 +225,8 @@ X	other	ersatz, esprit, dunno, gr8, univeristy
 '''
 **** Indentifiers that are not covered in the parsing process ***
 
-'': closing quotation mark
-    ' ''
 (: opening parenthesis
     ( [ {
 ): closing parenthesis
     ) ] }
-    ,
-LS: list item marker
-    A A. B B. C C. D E F First G H I J K One SP-44001 SP-44002 SP-44005
-    SP-44007 Second Third Three Two * a b c d first five four one six three
-    two
-
-``: opening quotation mark
-    ` ``
 '''

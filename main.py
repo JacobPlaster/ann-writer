@@ -19,16 +19,25 @@ import sys, getopt
 from _thread import *
 from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.NeuralNetwork import NeuralNetwork
-from Modules.NetworkTrainer import NetworkTrainer as nt
+from Modules.NetworkTrainer import NetworkTrainer
 
 _TrainingDataInputFile = "Datasets/HarryPotter.txt"
 
 def Main():
     neuralNetwork = NeuralNetwork()
+    networkTrainer = NetworkTrainer()
     # Parse the inputted arguments into a sentence
     # This is mainly going to be used for testing
-    nt.FeedToInputFileToNetwork(neuralNetwork, _TrainingDataInputFile)
-    #neuralNetwork.fitNetwork()
+    networkTrainer.FeedFromFile(_TrainingDataInputFile)
+    neuralNetwork.loadVectorsIntoNetwork(networkTrainer._TrainingSequence, networkTrainer._TrainingTargets)
+    neuralNetwork.FitNetwork()
+
+    #testing
+    tmpNl = NaturalLanguageObject(['average', 'time', 'it'])
+    print('\n')
+    print('Input: ' + str(tmpNl.sentenceTokenList))
+    print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
+    print('\n')
 
 if __name__ == '__main__':
     Main()
