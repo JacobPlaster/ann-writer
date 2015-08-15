@@ -4,12 +4,9 @@ from sklearn import linear_model
 from sklearn.neighbors import KNeighborsClassifier
 
 class NeuralNetwork:
-    isTraining = True
     trainingData = []
     trainingDataResults = []
     clf = None
-    isFirstTimeFitting = True
-    _BUFFER_AMOUNT = 100
 
 
     # adds data to the training buffer
@@ -37,14 +34,15 @@ class NeuralNetwork:
         print(targetVector)
         print('\n')
         '''
-        self.clf.fit(np.asarray(dataVector, dtype="complex"), np.asarray(targetVector, dtype="complex"))
+        self.clf.fit(np.asarray(dataVector, dtype="float"), np.asarray(targetVector, dtype="float"))
 
     # gets a prediction from the network with the given input
     def getPrediction(self, inNormalisedData):
-        return self.clf.predict(inNormalisedData)
+        pred = self.clf.predict(inNormalisedData)
+        return float(round(pred[0], 10))
 
     def __init__(self):
-        self.isTraining = True
-        #self.clf = svm.SVC(kernel='linear', C=1.0)
+        #self.clf = svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0, degree=3, gamma=0.0,
+        # kernel='rbf', max_iter=-1, probability=False, random_state=None, shrinking=True, tol=0.001, verbose=False)
         #self.clf = linear_model.SGDClassifier()
         self.clf = KNeighborsClassifier()

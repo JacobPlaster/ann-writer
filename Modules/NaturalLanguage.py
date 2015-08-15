@@ -34,7 +34,7 @@ class NaturalLanguageObject:
                 if inSentenceTokenList[index] == self._Identifiers[index2]:
                     # times unit by the index position
                     # Limits to 3 decimal places
-                    tmpNormal = ((index2+1) * normalisedUnit)
+                    tmpNormal = round(((index2+1) * normalisedUnit), 10)
                     # Make sure we dont add too many vectors
                     # We need to vector size to be exactly the same size as the
                     # inputted sentence

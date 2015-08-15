@@ -1,6 +1,8 @@
 from Modules.NeuralNetwork import NeuralNetwork
 from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.ConsoleOutput import ConsoleOutput
+from sklearn.metrics import accuracy_score
+import numpy as np
 
 class UnitTester:
     neuralNetwork = None
@@ -22,6 +24,9 @@ class UnitTester:
                                ',', 'was', 'immediately', 'explained', '.', 'A', 'few', 'people', 'gasped', '.']
         passedTests = []
         failedTests = []
+        # used to predict accuracy of the network
+        acTestPred = []
+        acTestTrue = []
 
         # Build a test sequence form each word
         for index, val in enumerate(testingPara):
@@ -36,12 +41,18 @@ class UnitTester:
                 nloTester = NaturalLanguageObject(tmpTestSeq)
                 nloTarget = NaturalLanguageObject([target])
                 # get nerual network prediction
-                prediction = str(nloTester.tokeniseNormals(self.neuralNetwork.getPrediction(nloTester.sentenceNormalised)))
+                normalPred = self.neuralNetwork.getPrediction(nloTester.sentenceNormalised)
+                prediction = str(nloTester.tokeniseNormals([normalPred]))
                 comp = str(nloTarget.sentenceTags)
+
+                cTrue = nloTarget.sentenceNormalised[0]
+                acTestTrue.append(cTrue*100)
+                acTestPred.append(normalPred*100)
 
                 #if first letters match, this means 'NN' will match with 'NNS'
                 if(prediction[2] == comp[2]):
                     passedTests.append("Phrase: " + str(nloTester.sentenceTokenList) + "   Target: " + str(nloTarget.sentenceTokenList) + "    Prediction: " + prediction)
+                    #passedTests.append(self.neuralNetwork.accuracy_score(nloTester.sentenceNormalised, predicted))
                 else:
                     failedTests.append("Phrase: " + str(nloTester.sentenceTokenList) + "   Target: " + str(nloTarget.sentenceTokenList) + "    Prediction: " + prediction)
 
@@ -56,6 +67,11 @@ class UnitTester:
         ConsoleOutput.printUnderline("Passed Tests: (" + str(len(passedTests)) + "/" + str(len(testingPara)) + ")")
         for val in passedTests:
             ConsoleOutput.printGreen(val)
+        print("\n")
+
+        nnAccuracy = accuracy_score(np.array(acTestTrue).astype(int), np.array(acTestPred).astype(int))
+        ConsoleOutput.printYellow("Passed: " + str(len(passedTests)) + "   Non-Fatals:" + str(len(failedTests)) + "   Fails: 0")
+        ConsoleOutput.printYellow("NeuralNetork accuracy: " + str(nnAccuracy*100) + "%")
         print("\n")
 
 
