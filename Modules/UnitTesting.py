@@ -1,5 +1,6 @@
 from Modules.NeuralNetwork import NeuralNetwork
 from Modules.NaturalLanguage import NaturalLanguageObject
+from Modules.ConsoleOutput import ConsoleOutput
 
 class UnitTester:
     neuralNetwork = None
@@ -47,12 +48,15 @@ class UnitTester:
         # print results
         print("\n")
         print("********** TestSentenceStructuring() **********")
-        print("\nFailed Tests: (" + str(len(failedTests)) + "/" + str(len(testingPara)) + ")")
+        print("\n")
+        ConsoleOutput.printUnderline("Non-Fatal failed Tests: (" + str(len(failedTests)) + "/" + str(len(testingPara)) + ")")
         for val in failedTests:
-            print(val)
-        print("\nPassed Tests: (" + str(len(passedTests)) + "/" + str(len(testingPara)) + ")")
+            ConsoleOutput.printYellow(val)
+        print("\n")
+        ConsoleOutput.printUnderline("Passed Tests: (" + str(len(passedTests)) + "/" + str(len(testingPara)) + ")")
         for val in passedTests:
-            print(val)
+            ConsoleOutput.printGreen(val)
+        print("\n")
 
 
     def __init__(self, inNeuralNetwork, inVectorSize):

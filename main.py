@@ -21,12 +21,16 @@ from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.NeuralNetwork import NeuralNetwork
 from Modules.NetworkTrainer import NetworkTrainer
 from Modules.UnitTesting import UnitTester
+from colorama import init, deinit
 
 _TrainingDataInputFile = "Datasets/HarryPotter.txt"
 # Amount of vectors per a test condition
 _TrainRange = 3
 
 def Main():
+    # Initialise colorama cross-platform console logging
+    init()
+
     neuralNetwork = NeuralNetwork()
     networkTrainer = NetworkTrainer(_TrainRange)
     # Parse the inputted arguments into a sentence
@@ -45,6 +49,9 @@ def Main():
     print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
     print('\n')
     '''
+
+    # Reset console back to original state
+    deinit()
 
 if __name__ == '__main__':
     Main()

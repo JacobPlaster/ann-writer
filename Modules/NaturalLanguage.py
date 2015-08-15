@@ -234,10 +234,3 @@ VERB	verb	is, say, told, given, playing, would
 .	punctuation marks	. , ; !
 X	other	ersatz, esprit, dunno, gr8, univeristy
 '''
-
-
-
-'''
-**** Indentifiers that are not covered in the parsing process ***
-
-'''
