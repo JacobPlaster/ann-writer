@@ -38,7 +38,8 @@ class UnitTester:
                 prediction = str(nloTester.tokeniseNormals(self.neuralNetwork.getPrediction(nloTester.sentenceNormalised)))
                 comp = str(nloTarget.sentenceTags)
 
-                if(prediction == comp):
+                #if first letters match, this means 'NN' will match with 'NNS'
+                if(prediction[2] == comp[2]):
                     passedTests.append("Phrase: " + str(nloTester.sentenceTokenList) + "   Target: " + str(nloTarget.sentenceTokenList) + "    Prediction: " + prediction)
                 else:
                     failedTests.append("Phrase: " + str(nloTester.sentenceTokenList) + "   Target: " + str(nloTarget.sentenceTokenList) + "    Prediction: " + prediction)

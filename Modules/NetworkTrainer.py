@@ -5,7 +5,7 @@ import re
 class NetworkTrainer:
     _TrainingSequence = []
     _TrainingTargets = []
-    _TrainRange = 3
+    _TrainRange = 0
 
     def FeedFromFile(self, InputFile):
         print("Beginning training process...")

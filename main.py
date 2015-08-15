@@ -38,11 +38,13 @@ def Main():
     #testing
     uTester = UnitTester(neuralNetwork, _TrainRange)
     uTester.TestSentenceStructuring()
-    tmpNl = NaturalLanguageObject(['harry', 'looked', 'at'])
+    '''
+    tmpNl = NaturalLanguageObject(['looked', 'at', 'ron', 'and'])
     print('\n')
     print('Input: ' + str(tmpNl.sentenceTokenList))
     print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
     print('\n')
+    '''
 
 if __name__ == '__main__':
     Main()
