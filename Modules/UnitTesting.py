@@ -71,7 +71,7 @@ class UnitTester:
 
         nnAccuracy = accuracy_score(np.array(acTestTrue).astype(int), np.array(acTestPred).astype(int))
         ConsoleOutput.printYellow("Passed: " + str(len(passedTests)) + "   Non-Fatals:" + str(len(failedTests)) + "   Fails: 0")
-        ConsoleOutput.printYellow("NeuralNetork accuracy: " + str(nnAccuracy*100) + "%")
+        ConsoleOutput.printYellow("NeuralNetork accuracy: " + str(round(nnAccuracy*100,1)) + "%")
         print("\n")
 
 

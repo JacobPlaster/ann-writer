@@ -41,13 +41,6 @@ class NaturalLanguageObject:
                     if(len(normalisedSentence) < len(self.sentenceTokenList)):
                         normalisedSentence.append(float(tmpNormal))
 
-        if(len(normalisedSentence) > 3):
-            print(self.sentenceTokenList)
-            print(normalisedSentence)
-        if(len(normalisedSentence) == 2):
-            print(self.sentenceTokenList)
-            print(normalisedSentence)
-
         return normalisedSentence
 
     def tokeniseNormals(self, inNormalsList):
@@ -55,7 +48,7 @@ class NaturalLanguageObject:
         for index, normal in enumerate(inNormalsList):
             # round the number to the nearest real number
             # and get from identifiers array
-            idn = int(round((normal/self._NormalisedDelta) * len(self._Identifiers),0))-1
+            idn = int(round(((normal)/self._NormalisedDelta) * len(self._Identifiers),0))-1
             tokenisedSentence.append(self._Identifiers[idn])
         return tokenisedSentence
 
@@ -215,8 +208,6 @@ WRB: Wh-adverb
 ``: opening quotation mark
     ` ``
 '''
-
-
 
 
 

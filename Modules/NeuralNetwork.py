@@ -2,6 +2,7 @@ import numpy as np
 from sklearn import svm
 from sklearn import linear_model
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors.nearest_centroid import NearestCentroid
 
 class NeuralNetwork:
     trainingData = []
@@ -45,4 +46,10 @@ class NeuralNetwork:
         #self.clf = svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0, degree=3, gamma=0.0,
         # kernel='rbf', max_iter=-1, probability=False, random_state=None, shrinking=True, tol=0.001, verbose=False)
         #self.clf = linear_model.SGDClassifier()
+
+        # 26% accuracy
         self.clf = KNeighborsClassifier()
+
+        # Bad accuracy (1%) but makes sense
+        #self.clf = svm.SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma=0.0,
+        #kernel='rbf', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
