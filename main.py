@@ -20,12 +20,15 @@ from _thread import *
 from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.NeuralNetwork import NeuralNetwork
 from Modules.NetworkTrainer import NetworkTrainer
+from Modules.UnitTesting import UnitTester
 
 _TrainingDataInputFile = "Datasets/HarryPotter.txt"
+# Amount of vectors per a test condition
+_TrainRange = 3
 
 def Main():
     neuralNetwork = NeuralNetwork()
-    networkTrainer = NetworkTrainer()
+    networkTrainer = NetworkTrainer(_TrainRange)
     # Parse the inputted arguments into a sentence
     # This is mainly going to be used for testing
     networkTrainer.FeedFromFile(_TrainingDataInputFile)
@@ -33,7 +36,9 @@ def Main():
     neuralNetwork.FitNetwork()
 
     #testing
-    tmpNl = NaturalLanguageObject(['average', 'time', 'it'])
+    uTester = UnitTester(neuralNetwork, _TrainRange)
+    uTester.TestSentenceStructuring()
+    tmpNl = NaturalLanguageObject(['harry', 'looked', 'at'])
     print('\n')
     print('Input: ' + str(tmpNl.sentenceTokenList))
     print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))

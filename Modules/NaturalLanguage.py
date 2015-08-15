@@ -6,12 +6,14 @@ class NaturalLanguageObject:
     _Identifiers = [',', '.', 'VBZ', 'VBP', 'VBN', 'VBG', 'VBD', 'VB', 'RP', 'RBS',
                     'RB', 'RBR', 'PDT', 'NNS', 'NNPS', 'NNP', 'NN', 'MD', 'SYM', 'JJS',
                     'JJR', 'JJ', 'WDT', 'WP', 'WP$', 'WRB', '$', ':', 'CC', 'CD', 'DT',
-                    'TO', 'EX', 'UH', 'FW', 'IN', 'POS', 'PRP', 'WDT', 'PRP$', "''", "``", "LS"]
+                    'TO', 'EX', 'UH', 'FW', 'IN', 'POS', 'PRP', 'WDT', 'PRP$', "''", "``", "LS", "(", ")"]
     sentenceList = None
     sentence = ""
     sentenceTokenList = ""
     sentenceTags = ""
     sentenceNormalised = None
+    # space between each seperated identifier
+    _NormalisedDelta = 1
 
     # Searches throuhg the elements and gets the grammatical
     # equivalents such as (verb, noun, Verb phrase ect...)
@@ -24,7 +26,7 @@ class NaturalLanguageObject:
     def normaliseSentenceTokens(self, inSentenceTokenList):
         normalisedSentence = []
         # unit product of all of the identifiers
-        normalisedUnit = float((1/len(self._Identifiers)))
+        normalisedUnit = float((self._NormalisedDelta/len(self._Identifiers)))
 
         for index, token in enumerate(inSentenceTokenList):
             for index2, tokenIdentifier in enumerate(self._Identifiers):
@@ -33,7 +35,19 @@ class NaturalLanguageObject:
                     # times unit by the index position
                     # Limits to 3 decimal places
                     tmpNormal = ((index2+1) * normalisedUnit)
-                    normalisedSentence.append(float(tmpNormal))
+                    # Make sure we dont add too many vectors
+                    # We need to vector size to be exactly the same size as the
+                    # inputted sentence
+                    if(len(normalisedSentence) < len(self.sentenceTokenList)):
+                        normalisedSentence.append(float(tmpNormal))
+
+        if(len(normalisedSentence) > 3):
+            print(self.sentenceTokenList)
+            print(normalisedSentence)
+        if(len(normalisedSentence) == 2):
+            print(self.sentenceTokenList)
+            print(normalisedSentence)
+
         return normalisedSentence
 
     def tokeniseNormals(self, inNormalsList):
@@ -41,7 +55,8 @@ class NaturalLanguageObject:
         for index, normal in enumerate(inNormalsList):
             # round the number to the nearest real number
             # and get from identifiers array
-            tokenisedSentence.append(self._Identifiers[int(round(normal * len(self._Identifiers),0))-1])
+            idn = int(round((normal/self._NormalisedDelta) * len(self._Identifiers),0))-1
+            tokenisedSentence.append(self._Identifiers[idn])
         return tokenisedSentence
 
     # Converts token list into list of pure tokens
@@ -225,8 +240,4 @@ X	other	ersatz, esprit, dunno, gr8, univeristy
 '''
 **** Indentifiers that are not covered in the parsing process ***
 
-(: opening parenthesis
-    ( [ {
-): closing parenthesis
-    ) ] }
 '''
