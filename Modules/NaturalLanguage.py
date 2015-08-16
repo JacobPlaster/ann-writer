@@ -12,6 +12,7 @@ class NaturalLanguageObject:
     sentenceTokenList = ""
     sentenceTags = ""
     sentenceNormalised = None
+    sentenceSize = 0
     # space between each seperated identifier
     _NormalisedDelta = 1
 
@@ -66,6 +67,7 @@ class NaturalLanguageObject:
         self.sentenceTokenList = self.getTokenisedScentence(self.sentence)
         self.sentenceTags = self.getTags(self.sentenceTokenList)
         self.sentenceNormalised = self.normaliseSentenceTokens(self.sentenceTags)
+        self.sentenceSize = len(inSentence)
 
 
 '''

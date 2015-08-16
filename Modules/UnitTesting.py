@@ -1,4 +1,4 @@
-from Modules.NeuralNetwork import NeuralNetwork
+from Modules.NeuralNetwork import NNSentenceStructure
 from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.ConsoleOutput import ConsoleOutput
 from sklearn.metrics import accuracy_score
