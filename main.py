@@ -23,7 +23,7 @@ from Modules.NetworkTrainer import NetworkTrainer
 from Modules.UnitTesting import UnitTester
 from colorama import init, deinit
 
-_TrainingDataInputFile = "Datasets/HarryPotter.txt"
+_TrainingDataInputFile = "Datasets/MacbookAirBlog(x1513).txt"
 # Amount of vectors per a train statement
 _TrainRangeSS = 3
 _TrainRangeV = 1

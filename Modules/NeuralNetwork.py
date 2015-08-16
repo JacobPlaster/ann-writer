@@ -47,6 +47,10 @@ class NNSentenceStructure:
         pred = self.clf.predict(inNormalisedData)
         return float(round(pred[0], _MAX_DECIMAL_PLACES))
 
+    def getPredictionProbability(self, inNormalisedData):
+        predProb = self.clf.predict_proba(inNormalisedData)
+        return predProb
+
 
     def __init__(self):
         #self.clf = svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0, degree=3, gamma=0.0,
