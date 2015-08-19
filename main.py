@@ -30,6 +30,19 @@ _TrainRangeSS = 3
 _TrainRangeV = 1
 
 def Main():
+    _isUnitTesting = False
+    _recursiveInput = False
+    consoleInArgs = sys.argv[1:]
+    # check input arguments
+    for index, val in enumerate(consoleInArgs):
+        # Runs the unit testing module on initiation
+        if(val == "-ut"):
+            _isUnitTesting = True
+        # Allows for the recursive user input loop to run
+        elif(val == "-ri"):
+            _recursiveInput = True
+        else:
+            raise ValueError('Un-recognized console argument: ' + val)
     # Initialise colorama cross-platform console logging
     init()
 
@@ -52,27 +65,29 @@ def Main():
     neuralNetworkSS.FitNetwork()
     # Fit to vocab network here ****
 
-    #testing
-    uTester = UnitTester(neuralNetworkSS, _TrainRangeSS)
-    uTester.TestSentenceStructuring()
-    '''
-    tmpNl = NaturalLanguageObject(['looked', 'at', 'ron', 'and'])
-    print('\n')
-    print('Input: ' + str(tmpNl.sentenceTokenList))
-    print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
-    print('\n')
-    '''
+    if(_isUnitTesting):
+        #testing
+        uTester = UnitTester(neuralNetworkSS, _TrainRangeSS)
+        uTester.TestSentenceStructuring()
+        '''
+        tmpNl = NaturalLanguageObject(['looked', 'at', 'ron', 'and'])
+        print('\n')
+        print('Input: ' + str(tmpNl.sentenceTokenList))
+        print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
+        print('\n')
+        '''
 
-    while(True):
-        inputIn = input("Enter sentence: ")
-        inputSen = inputIn.split()
-        if(len(inputSen) == _TrainRangeSS):
-            nlO = NaturalLanguageObject(inputSen)
-            print(str(nlO.sentenceTokenList))
-            testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
-            print("Predicted: " + str(nlO.tokeniseNormals([testPred])))
-        else:
-            print("Testing requires an input range of: " + _TrainRangeSS)
+    if(_recursiveInput):
+        while(True):
+            inputIn = input("Enter " + str(_TrainRangeSS) + " words: ")
+            inputSen = inputIn.split()
+            if(len(inputSen) == _TrainRangeSS):
+                nlO = NaturalLanguageObject(inputSen)
+                print(str(nlO.sentenceTokenList))
+                testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
+                print("Predicted: " + str(nlO.tokeniseNormals([testPred])))
+            else:
+                print("Testing requires an input range of: " + str(_TrainRangeSS))
 
 
     # Reset console back to original state
