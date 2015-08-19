@@ -1,0 +1,253 @@
+If you're looking for a machine that's going to handle whatever you can throw at it, you're going to want the MacBook Pro.
+If you're looking for something that's portable and more than capable of handling every day tasks,
+you're going to want to look at the MacBook Air. And if you want the newest technology, the latest form factor,
+the ultimate in portability, and you don't mind the price tag, the MacBook is the machine for you.
+The Retina MacBook Pro is Apple's workhorse MacBook, with the fastest processors, the best graphics,
+and the most available RAM (via upgrade). If you want to do things like serious photo, video, or audio editing,
+this is the Mac for you. Use Photoshop, Final Cut Pro, or Logic Pro X on a regular basis? You probably need a MacBook Pro.
+
+You're also going to want to choose a MacBook Pro if you want a machine capable of playing modern system-intensive games.
+Don't care about games and just want to do things like browse the Internet, write papers, and answer emails?
+The MacBook Pro may be more computer than you need -- consider a MacBook Air if you don't care about a Retina screen,
+or a MacBook if you don't mind the price.
+Within the MacBook Pro family, there are 13 and 15-inch models and several different configurations at various price points.
+As the price goes up, so does the power. Most of Apple's MacBook Pro models have a Retina screen, aside from the 13-inch
+MacBook Pro priced at $1,099. You don't want to buy this model -- it's years old and technologically lagging way behind newer models.
+
+In the past, many people have chosen a MacBook Pro because it was the only notebook that offered a Retina display,
+but with the recent addition of the 12-inch two-pound MacBook, there's no longer a need to compromise between portability
+and a decent display. If you don't need the power of a MacBook Pro but want a Retina display, the MacBook is now the machine to choose.
+The MacBook Pro is Apple's most powerful notebook, but be warned: it's also the biggest and heaviest.
+The 13-inch version weighs in at 3.48 pounds and the 15-inch version is 4.46 pounds. That doesn't sound like much in print,
+but carrying four pounds on your back all day is a lot more taxing than 2 or 3 -- the weight of Apple's lighter notebooks.
+All Retina MacBook Pro models have two thunderbolt ports and two USB 3.0 ports, along with an HDMI port, a headphone port, and an SD card slot.
+So, 13-inch or 15-inch? The 15-inch machines are more powerful, with quad-core processors, Intel Iris Pro Graphics,
+and the option for a discrete graphics card, and (obviously) a bigger display, but they're also more expensive.
+The 13-inch models have dual-core processors and are limited to integrated graphics.
+After a recent update to the 15-inch model, both the 13 and 15-inch Retina MacBook Pros come with a pretty cool Force Touch trackpad that has new gestures, and they've got speedier flash storage.
+
+The 13-inch Retina MacBook Pro was last updated in March of 2015 and the 15-inch model was last updated in May of 2015.
+The 13-inch model got new Broadwell processors, but the 15-inch model continues to use Crystalwell processors in the Haswell family.
+These aren't quite as speedy or efficient as Broadwell processors, but Intel's delays have prevented Apple from introducing processor upgrades.
+We don't expect to see another update to the 15-inch Retina MacBook Pro for several months to come,
+but the next model will use improved Broadwell or Skylake processors.
+All of these models have custom build-to-order options that let you boost the processor, the SSD, and the RAM for extra money. On the high end, you can get a 13-inch Retina MacBook Pro with a 3.1GHz dual-core Broadwell processor, 16GB RAM, and a 1TB SSD or a 15-inch Retina MacBook Pro with a 2.8GHz quad-core Crystallwell processor, 16GB RAM, and a 1TB SSD.
+
+Beyond choosing a specific MacBook Pro model, you also need to decide whether you want to make any additional build-to-order upgrades.
+It's important to note that these components can't be upgraded later, so you need to think ahead to what you might need in the future.
+Upgrading the RAM or the CPU will keep your machine feeling fast longer.
+Need a ton of storage space for videos and photos? Get the storage upgrade.
+Want the best gaming performance? You'll want to opt for the higher-end 15-inch Retina MacBook, which has a discrete graphics card.
+Do complex 3D modeling, intensive video/audio/photo editing tasks often? The extra RAM might be worthwhile.
+Individual workloads are going to vary significantly,
+so there's no one-size-fits-all solution for all users -- that's why Apple offers so many options.
+When deciding between a 15-inch model and a 13-inch model, aside from display size and price, the biggest difference is the processor.
+With the 15-inch model, you're getting a quad-core processor, but with the 13-inch model, it's dual-core.
+Quad-core processors are better if you plan to do a lot of multitasking with many apps open at once,
+or if you plan on playing intensive games, you'll benefit from a quad-core processor.
+Single-core performance between the two MacBooks is similar,
+but multi-core performance is much better in the quad-core 15-inch Retina MacBook Pro.
+Need the ultimate in power and money is no object? Go with the 15-inch model.
+On a budget but still want more power than a MacBook Air will provide? Get the 13-inch Retina MacBook Pro.
+It's still a powerful machine that's going to do all of your photo, video, and audio editing tasks with ease.
+
+The MacBook Air used to be Apple's most portable computer, but with the introduction of the 12-inch super thin MacBook,
+it's now just Apple's most affordable notebook. Its low price tag comes at a cost -- it's the only notebook in Apple's
+lineup without a Retina display. The 11-inch model's display has a resolution of 1366 x 768, while the 13-inch model's display
+has a resolution of 1440 x 900.
+It's not Apple's lightest portable notebook anymore (that title goes to the 2.03-pound MacBook),
+but the MacBook Air is still lighter and thinner than the Retina MacBook Pro. The 11-inch model weighs in at 2.38 pounds,
+while the 13-inch model weighs 2.96 pounds. Both models are 0.68 inches thick.
+If you're on a budget and need a portable laptop for under $1,000 that's powerful enough for your day to day needs like web browsing,
+email, and light application use, the MacBook Air is the notebook to choose. It'll handle some games and apps like Photoshop and Final Cut Pro,
+but it won't do as well as the MacBook Pro. If you have a bigger budget, the Retina displays of the MacBook Pro and the MacBook are worth the extra money.
+There is another situation where you might want to choose the MacBook Air over the MacBook or the MacBook Pro,
+and that's if you need portability and ports. The MacBook Pro is heavier (and thus less portable),
+and while the MacBook is thinner and lighter, it's only got one USB-C port, which might not fit into some workflows.
+If you need Thunderbolt and standard USB ports, don't want to deal with adapters, and don't mind the lack of a Retina display,
+the MacBook Air might be the machine for you.
+
+You might think I’m insane, but I ride NJ Transit for about 1.5 hours each way to New York, and I use that time to catch up on writing, editing and other work that meetings push off.
+If there’s one laptop that’s tailor-made for long, cramped bus rides, this is it. The low profile of the MacBook’s display made it easy to catch up on
+email even when commuters in front of me reclined. Usually, with the 13-inch Air, I need to either recline myself or bring the system much
+closer to my body, resulting in a very cramped typing experience.
+What I didn’t appreciate was having to plug in a $19 dongle before I could connect a traditional USB device,
+such as my Verizon 4G hotspot. I sometimes forget to charge the hotspot at night, so I’ll use my MacBook Air’s USB port for juice on the go.
+With the MacBook, I had to connect the adapter to the laptop and then plug the micro-USB cable for the hotspot into that.
+I typically left this cable plugged into the dongle in my bag.
+The MacBook’s battery held up well, for the most part. The system lasted 8 hours and 43 minutes on our battery test,
+which involves continuous Web surfing, but that was at a lower brightness than I use, and the test has built-in pauses.
+When I’m working, I’m constantly pulling up new websites. Nevertheless, even under the most strenuous conditions, I still had 50
+percent power left after an especially bad 2-hour commute.
+
+“It’s so small.” That’s the first thing my wife said when I pulled the new MacBook out of my bag and placed it on the dining room table.
+It wasn’t a compliment. Her tone implied, “Why are you using something so small instead of a full-size computer?”
+It’s true that the MacBook’s display is on the small side, but Apple makes up for that with a high resolution (2304 x 1440 pixels)
+and saturated colors. In fact, the washed-out screen on the 13-inch Air literally pales in comparison to this display. But if you
+prefer a larger canvas, this definitely isn’t the system for you.
+Once I arrived, colleagues and visitors often remarked how slick the MacBook looked compared to my usual 13-inch Air, but they also wondered
+whether it was practical. In this sort of setting, it was fine. I could take notes with ease, and also found the Force Touch
+clickpad to be very smooth and accurate. I liked that I got the same clicky feedback no matter where my finger landed on the pad.
+I wish I could have tested out the MacBook as my primary PC and swapped it out for my 2013 MacBook Pro, but it’s just not possible.
+For one, the MacBook doesn’t support dual-monitor setups, which is a deal breaker for the way I work. And even if I wanted to
+attach a bigger new Apple monitor, I couldn’t do that because the MacBook doesn’t support Thunderbolt connections. I’d have to go
+with an HDMI monitor if I opted for Apple’s Multiport Adapter.
+But I was also surprised by how much I missed Apple’s MagSafe power adapter,
+which is found on the Air and MacBook Pro. Sure, the USB-C connector on the MacBook’s power adapter is reversible,
+so you can’t connect the power adapter the wrong way, but I like how the MagSafe magnetically attaches and lights up to let
+you know that it’s connected. I can also attach MagSafe to the Air without barely looking; with USB-C, you have to line up the
+connector before inserting it.
+
+As on-the-go computers go, the MacBook has nearly everything I want, but now that my monthlong test drive is over,
+I have mixed feelings. On the plus side, the MacBook is wonderfully thin and light, lasts long enough on a charge,
+and is surprisingly comfortable to use (keyboard learning curve aside). However, having to schlep around and plug in dongles to
+get the basic functionality I’m accustomed to from the cheaper 13-inch Air grew frustrating. It made me question the $1,299 price tag.
+Now that I’m going back to my Air, I’m going to miss the MacBook’s sheer portability, and especially it’s sharper and richer display.
+But I’d rather carry around an extra pound to get more horsepower and ports. I’ll wait for a Retina Air.
+
+Even after getting accustomed to it enough to type at my full speed — or maybe even a bit faster — its limited key-travel depth
+and keyswitch feel not only make it feel much worse, but also make typing much more error-prone for me. You have to use so little
+downward force to type quickly and keep from uncomfortably “bottoming out” that I often miss keypresses, not because I didn’t hit
+the correct key, but because I just didn’t press it hard enough.
+The extremely shallow key travel is partly to blame, but so is the keyswitch feel. They’re more like clicky buttons than keyboard keys,
+feeling almost like the iPhone’s Home button. They don’t engage or actuate — they snap. This makes it harder to modulate downward force
+while typing on them, especially from your weaker outer fingers.
+I can type on the MacBook, but I’d rather not.
+What I hadn’t considered was that even though I had common tasks that could fit within the MacBook’s limited specs — email,
+writing, chat — all of them required a lot of typing. Oops.
+
+For all of these tradeoffs, the MacBook is ridiculously small and light. When comparing it in the store against its next-smallest Retina sibling,
+the 13-inch Retina MacBook Pro, it’s not even close — there’s a vast gap between them. It even feels like a major improvement over the MacBook Airs,
+which are already extremely small and light.
+The MacBook just looks and feels like the obvious, no-brainer choice for a small Mac. That’s why people buy it. That’s why I bought it.
+I loved it before I bought it. I love looking at it and picking it up.
+I just hate using it.
+I hate typing on it, I hate the trackpad, it’s slower than I expected, the screen is noticeably blurry from non-native scaling to get
+reasonable screen space, and I don’t even find it very comfortable to use in my lap because it’s too small.
+I hate returning things, but I’m returning this.
+I can see why a lot of people love it. Not everyone hates the keyboard and trackpad as much as I do. If I were carrying my laptop for a
+long time in a shoulder bag every day (which I was when I got the 2008 Air), this would be a welcome weight reduction. If I frequently
+worked on airline tray tables in economy with the person reclined in front of me, the extremely small size might make the difference
+between being able to use my laptop or not.
+But all of those benefits are also available in the 11-inch MacBook Air. It has a far better keyboard and trackpad, more ports, and
+faster performance. The only major downsides are the lack of a Retina screen and less screen space.
+The 11-inch MacBook Air shows that the MacBook’s compromises have nothing to do with going Retina — the One has roughly the same GPU,
+less horsepower, less space, less weight, and a smaller battery, yet still drives a Retina screen perfectly well. Apple could have
+made a Retina MacBook Air instead of (or in addition to) this new MacBook, but chose not to.
+Instead, we have major compromises on previous invariants. Until now, since I started buying Macs 11 years ago, Apple had never shipped
+a laptop with a keyboard or trackpad that was less than great. They recognized that a laptop without a good keyboard wasn’t a good laptop,
+even if a lot of people would be OK with it and buy it anyway.
+Now, Apple’s priorities have changed. Rather than make really great products that are mostly thin, they now make really thin products
+that are mostly great.
+This concerns me more than you probably think it should. Not only does it represent compromised standards in areas I believe are important,
+but it suggests that they don’t have many better ideas to advance the products beyond making them thinner, and they’re willing to sacrifice
+anything to keep that going.
+
+The 15-inch Retina MacBook Pro hasn’t changed much since my impulse buy in 2012. Today, Apple updated them, but it’s a very minor update —
+the aging Haswell CPUs are unchanged from last year and barely changed since 2013, held back by Intel’s Broadwell delays, and the current
+base model is only 11% faster than the one I bought in 2012. Even today’s highest-end CPU is only 24% faster than my 2012 base model.
+There’s still no USB-C, no LCD improvements since 2012, and nearly the same battery life as last year’s model.2 They now have Force Touch
+trackpads, but I consider that a downgrade.
+The base-model 15-inch is usually a fantastic deal, and this generation is no exception — I’d say it’s the best laptop value in the lineup
+for a power user, only spending extra for more storage if you need it.3
+In the last 11 years, when I’ve had smaller laptops, I’ve often run into their limits. But I’ve never regretted buying a 15-inch. It always
+serves me better, doesn’t leave me wanting more power or screen space, and just feels right.
+It’s not sexy, it’s not cool, and it may never be again. But neither will I.
+It’s heavier than Apple’s smaller laptops, but it’s not heavy, really. It’s about the same weight as the original white plastic 13-inch MacBook,
+which we all thought was incredibly light and portable.
+I want more battery life, but I can get most of the way there by just getting a new 15-inch: they’re now offered without discrete
+GPUs (which drain power and kill logic boards for benefits I don’t need), Haswell is more power-efficient than my Ivy Bridge core,
+and anything I buy today will have a battery that’s three years newer. The CPU will only be 11% faster, but it’s already fast enough
+for my work, and the new ones have twice as much RAM. This one has lasted three years and still works well enough that I can sell it
+for a good price or give it to a family member.
+Since I don’t like Force Touch trackpads and the new models offer nothing else I need, I just ordered yesterday’s base model for $1850
+before it goes out of stock — an even better value than usual. Today’s hardware at yesterday’s prices.
+It has a great keyboard, great trackpad, the largest screen available, tons of ports, and tons of horsepower. It can do everything I need
+a laptop to do, and I’ll enjoy every minute of using it. The only major compromise is the size, but now that I’ve seen the other side,
+I’m OK with that.
+
+'ve owned the 2015 MacBook for just over a month now. I've had a remarkably good time using it so far, and just yesterday I decided to
+upgrade my installation of Windows 8.1 to the Windows 10 Insider Preview. I had tried it out a couple months earlier through a virtual machine,
+and at the time I wasn't sure I wanted it as my main operating system. But after taking the plunge, I'm very happy to be using it. I wanted
+to record a few thoughts about it for others curious about the new OS, especially its usability and performance on this new hardware.
+Setting up was easy. I opted to install from Windows 8.1, which still installs a fresh copy of the operating system, but it's easier than
+creating installation media from scratch. I did, however, make sure to re-download Apple's latest Boot Camp drivers through Boot Camp
+Assistant before installing. These saved to an external USB drive that I left plugged in during the installation. Things proceeded typically.
+If you've ever installed Windows 8.1 on a Mac, you'll recognize the process; not a lot has changed. Fortunately, upon finishing the installation,
+the Boot Camp drivers were automatically recognized on the USB drive and installed, which is what is supposed to happen. Unfortunately,
+not every driver installed successfully the first time around. For example, I was able to modify volume with Apple's native UI popup, but
+brightness (which uses the built-in Windows switcher) didn't change. The all-important system tray application for modifying trackpad
+settings and quickly booting back into OS X also wasn't present. I rebooted and chose to re-run the driver installation after "troubleshooting
+compatibility", where Windows recommended that it skip the forced version check. That fixed things. Apple still curiously doesn't provide
+a Bluetooth driver in this driver package, but everything else works.
+
+Years ago I discovered Trackpad++, a driver solution to bring the functionality of Apple trackpads closer to how they behave on OS X,
+and closer to how high-end trackpads now behave on Windows. I didn't actually have it installed on my old Mac's Windows partition, but I
+highly recommend installing it now. The developer's website looks straight out of the 90s and not terribly trustworthy, but he has a strong
+reputation, and the driver was recently updated for the 12-inch MacBook and Windows 10. You'll also need to install another application to
+allow the new trackpad driver to be installed, but it's worth it. With Trackpad++, I have three finger drag, two finger swiping for forward/back,
+as well as two finger swiping in from the edge to access the new Notifications pane. I even have four finger swipe access to Task View,
+(just like how I access Mission Control on OS X), which may be my favorite feature in Windows 10.
+Continuing to move in, I realized that Windows 10 was kind of gorgeous. Little design touches have really improved the way things look,
+such as the switch to circular account pictures on the login screen. I found that I had to switch desktop scaling to 150% for the size of
+everything to be just right, but that was a nice compromise between readability and screen real estate. As is typical of high DPI screens on
+Windows, not every application scales natively right now, causing some to look blurry. Steam is a notable example. But many things are now
+upscaled, such as Microsoft's desktop OneNote application, and generally things look great. The same thing happened on OS X when Retina
+displays were first added to Macs, but obviously Windows has a larger variety of software, and much less forced adoption of devices with
+high DPI displays. In time, most everything will be revised to take advantage of these nicer screens, but I do wonder if legacy applications
+that have long since stopped receiving updates will just be blurry (or super small) forever.
+
+I should also amend my review of the MacBook to state that some 3D games actually perform pretty well. I was able to keep Left 4 Dead 2 at a
+near-steady 60FPS running at 1280x800 and medium settings. Things occasionally slowed down by ~10FPS when there were a lot of enemies on screen,
+but I was legitimately impressed with how well it looked at that resolution and those settings. Had I dropped the visual settings to absolute
+minimums, I bet the frame drops would have disappeared.
+I also was able to emulate Super Smash Bros. Melee with Dolphin at a steady 60FPS. And, of course, a 2D game like Super Meat Boy ran beautifully
+well at full Retina resolution, having no problem playing at full speed. Overall, gaming isn't guaranteed to be good on this machine,
+but the spectrum of PC game performance is just massive, and I failed to account for that in my original review. Some games, like Valve's Left
+4 Dead 2 (and similarly Dota 2, which I've heard runs very well), are produced by a developer that prides itself on optimization and efficiency,
+even on poor hardware. Others, like Dishonored and Cities: Skylines, just aren't designed with integrated graphics in mind. (In Cities:
+Skylines' case, the developer acknowledged this shortly after release.) I'm happy that I revisted 3D games on this machine, because now I
+have a rosier outlook than before.
+
+The biggest struggle I had in Windows 10 was getting the above screenshot. Without a PrintScreen key, I had to download some software to let
+me take a timed screenshot. One thing I miss from OS X is the Cmd+Shift+3 shortcut. However, the above screenshot represents the sort of
+multitasking that was easily achievable. I'm impressed with performance.
+Elsewhere, things are great. Cortana is an excellent addition, and I think it's only a matter of time before Apple rolls Siri into OS X somehow.
+Being able to say "Hey Cortana, what's the weather going to be like tomorrow?" from across the room is really, really cool. Battery life seemed
+very good from the short time I used it. I didn't fully deplete the battery, but I was on track to get over 9 hours of use with brightness at
+40%. Mac battery life is rarely as strong on Windows, but there doesn't seem to be as enormous of a gap here, which is good. Then there's
+Task View, Microsoft's answer to Mission Control, which is excellent. It behaves like Mission Control does on OS X, meaning it displays all
+open windows, as well as simulated desktops. This is an absolutely fantastic feature.
+Here's the real kicker: it's fast. It's smooth. It renders at 60FPS unless you have a lot going on. It's unequivocally better than
+performance on OS X, further leading me to believe that Apple really needs to overhaul how animations are done. Even when I turn Transparency
+off in OS X, Mission Control isn't completely smooth. Here, even after some Aero Glass transparency has been added in, everything is smooth.
+It's remarkable, and it makes me believe in the 12-inch MacBook more than ever before.
+So maybe it's ironic that in some regards, the new MacBook runs Windows 10 (a prerelease version, at that) better than it runs OS X.
+But it's a testament to two things: Apple's fantastic MacBook hardware, which is forward-thinking yet surprisingly agile; and Microsoft's
+excellent Windows software, which entices and excites with its beautiful interface, useful new features, and rock-solid UI transitions.
+I'm excited to keep Windows 10 installed on this machine, both now as a preview, and later once the final version is installed. Even hardened
+OS X diehards owe it to themselves to give it a try.
+Update 5/15/15: The response to this article has been astounding, and I really appreciate all of the feedback I’ve gotten on it. I want to do
+my best to clear up a few specific points that I originally glossed over in the original piece.
+First, OS X on the MacBook exhibits UI stuttering even at the non-downscaled resolution of 1152x720. This resolution causes things to be
+laughably large, and I doubt many use it, but it is necessary to take into account. Otherwise, it could lend Windows an unfair advantage,
+as Windows doesn’t use downscaling to manage UI resizing. I mentioned this in my review, but I did not reiterate it here.
+Second, I was a bit vague about the difference in performance between Mission Control and Task View. Task View does slow down to less than
+60FPS, and that can happen when only a handful of applications are open, not just when “a lot is going on.” It does, however, seem to
+have a higher tolerance, performing better per number of windows open than Mission Control. It is difficult to compare these two operating
+systems fairly, because Windows 10 is still very much beta software, and sometimes it has slowdowns that don’t seem otherwise characteristic
+of its performance. For example, sometimes Task View has a slight delay before running, but so does the Start Menu. Windows 8.1 does not exhibit
+this. Other times, Task View and the Start Menu respond without delay.
+
+I cannot guarantee that Task View often runs at 60FPS, as I haven't yet found a working measuring tool, but to my eyes, there are no stutters
+or frame drops in the super-smooth animation. In other words, it looks like 60FPS, and it looks much better than transitions on OS X. I want
+to quantify this claim. and I am still looking for software that will track UI performance on Windows, but with Quartz Debug, an OS X 
+profiling tool, I found that Mission Control hovered around 41FPS for 720p and 37FPS for 900p, the latter of which is ideal for screen real
+estate. Because Apple does not cap Mission Control at 30FPS or something else, and because inertial scrolling and Space-switching more
+frequently operate at 60FPS, it is reasonable to assume that Apple expects Mission Control to be able to reach 60FPS too. Thus, framerates
+in the high 30s and low 40s stick out.
+Until thorough benchmarking is completed by me or someone else, I think the best way to put it is this: Task View often runs at 60FPS, while
+Mission Control never runs at 60FPS.
+Overall, UI speed is only one metric of speed, and articles claiming that I found Windows 10 to be faster than OS X are missing the point.
+My initial impressions of Windows 10 were very good, and for those who are able to test both operating systems themselves,
+it should be evident that Windows 10 appears to have a higher tolerance for smooth UI transitions than OS X does.

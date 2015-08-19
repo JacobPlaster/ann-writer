@@ -28,6 +28,7 @@ class NetworkTrainer:
             line = re.sub( r'([,.!?:;"()\'\"])(.)', r'\1 \2', line)
             line = line.replace('"', '')
             sentence.extend(line.split())
+        ConsoleOutput.printGreen("Data load successful. WordCount: " + str(len(sentence)))
         self._nloTextData = NaturalLanguageObject(sentence)
 
     def loadSentenceStructureNormals(self):

@@ -3,6 +3,7 @@ import nltk
 
 class NaturalLanguageObject:
     # All of the tokens that are usefull from the nltk parsing system
+    # 45 values
     _Identifiers = [',', '.', 'VBZ', 'VBP', 'VBN', 'VBG', 'VBD', 'VB', 'RP', 'RBS',
                     'RB', 'RBR', 'PDT', 'NNS', 'NNPS', 'NNP', 'NN', 'MD', 'SYM', 'JJS',
                     'JJR', 'JJ', 'WDT', 'WP', 'WP$', 'WRB', '$', ':', 'CC', 'CD', 'DT',
@@ -15,6 +16,7 @@ class NaturalLanguageObject:
     sentenceSize = 0
     # space between each seperated identifier
     _NormalisedDelta = 1
+    normalisedUnit = 2/len(_Identifiers)
 
     # Searches throuhg the elements and gets the grammatical
     # equivalents such as (verb, noun, Verb phrase ect...)
@@ -26,16 +28,14 @@ class NaturalLanguageObject:
     # this is the scale that proves most effective when neural networking
     def normaliseSentenceTokens(self, inSentenceTokenList):
         normalisedSentence = []
-        # unit product of all of the identifiers
-        normalisedUnit = float((self._NormalisedDelta/len(self._Identifiers)))
-
+        # unit product of all of the identifier
         for index, token in enumerate(inSentenceTokenList):
             for index2, tokenIdentifier in enumerate(self._Identifiers):
                 # if token is equel to one of the identifiers
-                if inSentenceTokenList[index] == self._Identifiers[index2]:
+                if inSentenceTokenList[index] == tokenIdentifier:
                     # times unit by the index position
                     # Limits to 3 decimal places
-                    tmpNormal = round(((index2+1) * normalisedUnit), 10)
+                    tmpNormal = round(float(((index2+1) * self.normalisedUnit)), 10)
                     # Make sure we dont add too many vectors
                     # We need to vector size to be exactly the same size as the
                     # inputted sentence
@@ -49,7 +49,7 @@ class NaturalLanguageObject:
         for index, normal in enumerate(inNormalsList):
             # round the number to the nearest real number
             # and get from identifiers array
-            idn = int(round(((normal)/self._NormalisedDelta) * len(self._Identifiers),0))-1
+            idn = int(round(((normal/self.normalisedUnit)),0))-1
             tokenisedSentence.append(self._Identifiers[idn])
         return tokenisedSentence
 

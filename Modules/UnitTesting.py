@@ -37,6 +37,7 @@ class UnitTester:
 
     def TestSentenceStructuring(self):
 
+        #testingPara = testingParaHarryPotter
         testingPara = testingParaMacbookBlog
         passedTests = []
         nonFatalTests = []

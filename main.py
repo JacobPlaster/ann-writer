@@ -23,7 +23,8 @@ from Modules.NetworkTrainer import NetworkTrainer
 from Modules.UnitTesting import UnitTester
 from colorama import init, deinit
 
-_TrainingDataInputFile = "Datasets/MacbookAirBlog(x1513).txt"
+_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
+#_TrainingDataInputFile = "Datasets/HarryPotter(x1737).txt"
 # Amount of vectors per a train statement
 _TrainRangeSS = 3
 _TrainRangeV = 1
@@ -61,6 +62,18 @@ def Main():
     print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
     print('\n')
     '''
+
+    while(True):
+        inputIn = input("Enter sentence: ")
+        inputSen = inputIn.split()
+        if(len(inputSen) == _TrainRangeSS):
+            nlO = NaturalLanguageObject(inputSen)
+            print(str(nlO.sentenceTokenList))
+            testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
+            print("Predicted: " + str(nlO.tokeniseNormals([testPred])))
+        else:
+            print("Testing requires an input range of: " + _TrainRangeSS)
+
 
     # Reset console back to original state
     deinit()
