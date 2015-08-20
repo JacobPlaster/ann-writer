@@ -1,6 +1,7 @@
 from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.NeuralNetwork import NNSentenceStructure
 from Modules.ConsoleOutput import ConsoleOutput
+from random import randint
 import re
 
 class NetworkTrainer:
@@ -15,6 +16,7 @@ class NetworkTrainer:
     _TrainRangeSS = 3
     _TrainRangeV = 2
     _nloTextData = None
+    _Vocabulary = None
 
 
     def loadTextFromFile(self, InputFile):
@@ -22,11 +24,13 @@ class NetworkTrainer:
         sentence = []
         # Convert to natural language object
         for line in open(InputFile):
+            # remove completely
+            line = line.replace('"', '')
+            line = line.replace("'", '')
             # seperate punctuation from eachother so they have seprate tokens
             line = re.sub( r'(.)([,.!?:;"()\'\"])', r'\1 \2', line)
             # seperate from both directions
             line = re.sub( r'([,.!?:;"()\'\"])(.)', r'\1 \2', line)
-            line = line.replace('"', '')
             sentence.extend(line.split())
         ConsoleOutput.printGreen("Data load successful. WordCount: " + str(len(sentence)))
         self._nloTextData = NaturalLanguageObject(sentence)
@@ -62,10 +66,33 @@ class NetworkTrainer:
     def loadVocabularyNormals(self):
         if(self._nloTextData != None):
             ConsoleOutput.printGreen("Beginning sentence vocabulary parse...")
-            for identifier in NaturalLanguageObject._Identifiers:
-                x = 10
+            # create vocabulary with the same amount of rows as the identifiers
+            vocabulary = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
+            # Build a vocabulary from the input data
+            for wordIndex, x in enumerate(self._nloTextData.sentenceTokenList):
+                wordToken = self._nloTextData.sentenceTokenList[wordIndex][1]
+                word = self._nloTextData.sentenceTokenList[wordIndex][0]
+                # find which colum to insert into
+                for iIndex, iden in enumerate(NaturalLanguageObject._Identifiers):
+                    # find colum
+                    if(iden == wordToken):
+                        #find if word already exists in rows
+                        if word not in vocabulary[iIndex]:
+                            vocabulary[iIndex].append(word)
+
+            self._Vocabulary = vocabulary
+
+            # print most populer
+            #for index, i in enumerate(vocabulary):
+                #print(NaturalLanguageObject._Identifiers[index] + " With " + str(len(vocabulary[index])))
         else:
             raise ValueError('Need to load data via loadFromTextFile() before calling function.')
+
+    def getRandomWordFromIdentifier(self, indentifier):
+        for index, val in enumerate(NaturalLanguageObject._Identifiers):
+            if(indentifier == NaturalLanguageObject._Identifiers[index]):
+                # return random word from dictionary
+                return self._Vocabulary[index][randint(0, len(self._Vocabulary[index])-1)]
 
 
 

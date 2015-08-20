@@ -65,6 +65,7 @@ def Main():
     neuralNetworkSS.FitNetwork()
     # Fit to vocab network here ****
 
+    # Use console argument "-ut" to activate
     if(_isUnitTesting):
         #testing
         uTester = UnitTester(neuralNetworkSS, _TrainRangeSS)
@@ -77,6 +78,7 @@ def Main():
         print('\n')
         '''
 
+    # Use console argument "-ri" to activate
     if(_recursiveInput):
         while(True):
             inputIn = input("Enter " + str(_TrainRangeSS) + " words: ")
@@ -85,11 +87,26 @@ def Main():
                 nlO = NaturalLanguageObject(inputSen)
                 print(str(nlO.sentenceTokenList))
                 testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
-                print("Predicted: " + str(nlO.tokeniseNormals([testPred])))
+                testPred = nlO.tokeniseNormals([testPred])
+                print("Predicted: " + str(testPred))
+                print(inputIn + " " + str(networkTrainer.getRandomWordFromIdentifier(testPred[0])))
             else:
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
-
+    genSize = 30
+    initialInput = "The Macbook air"
+    print(initialInput + " ", end="")
+    initialInput = initialInput.split()
+    # generate a sentence of genSize
+    for index in range(0, genSize):
+        nlO = NaturalLanguageObject(initialInput)
+        testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
+        testPred = nlO.tokeniseNormals([testPred])
+        word = str(networkTrainer.getRandomWordFromIdentifier(testPred[0]))
+        print("" + word + " ", end="")
+        del initialInput[0]
+        initialInput.append(word)
+    print("\n")
     # Reset console back to original state
     deinit()
 

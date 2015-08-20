@@ -75,6 +75,7 @@ class NNVocabulary:
     def loadVectorsIntoNetwork(self, inNormalisedData, targetResult):
         self.trainingData.extend(inNormalisedData)
         self.trainingDataResults.extend(targetResult)
+        
 
     # Fits the network to all of the data passed in
     def FitNetwork(self):
