@@ -24,6 +24,7 @@ class NetworkTrainer:
         sentence = []
         # Convert to natural language object
         for line in open(InputFile):
+            #line = line.lower()
             # remove completely
             line = line.replace('"', '')
             line = line.replace("'", '')

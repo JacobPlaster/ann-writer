@@ -9,7 +9,7 @@ class NaturalLanguageObject:
                     'JJR', 'JJ', 'WDT', 'WP', 'WP$', 'WRB', '$', ':', 'CC', 'CD', 'DT',
                     'TO', 'EX', 'UH', 'FW', 'IN', 'POS', 'PRP', 'WDT', 'PRP$', "''", "``", "LS", "(", ")"]
     '''
-    _Identifiers = ['NN', 'NNP' 'NNS', 'NNPS', 'IN', ',', '.', 'DT', 'JJR', 'JJ', 'JJS', 'RP', 'RBS',
+    _Identifiers = ['NN', 'NNP', 'NNS', 'NNPS', 'IN', ',', '.', 'DT', 'JJR', 'JJ', 'JJS', 'RP', 'RBS',
                     'RB', 'RBR', 'PRP', 'PDT', 'VBZ', 'VBP', 'VBN', 'VBG', 'VBD', 'VB', 'MD', 'SYM',
                     'WDT', 'WP', 'WP$', 'WRB', '$', ':', 'CC', 'CD',
                     'TO', 'EX', 'UH', 'FW', 'POS', 'WDT', 'PRP$', "''", "``", "LS", "(", ")"]
