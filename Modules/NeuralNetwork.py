@@ -4,6 +4,7 @@ from sklearn import linear_model
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors.nearest_centroid import NearestCentroid
 from Modules.ConsoleOutput import ConsoleOutput
+from Modules.NaturalLanguage import NaturalLanguageObject
 
 _MAX_DECIMAL_PLACES = 10
 
@@ -70,18 +71,39 @@ class NNVocabulary:
     trainingData = []
     trainingDataResults = []
     clf = None
+    _Networks = []
+    _Vocabulary = None
 
     # adds data to the training buffer
-    def loadVectorsIntoNetwork(self, inNormalisedData, targetResult):
-        self.trainingData.extend(inNormalisedData)
-        self.trainingDataResults.extend(targetResult)
-        
+    def loadVectorsIntoNetworkByIndex(self, index, inNormalisedData, targetResult):
+        self.trainingData[index].append([inNormalisedData])
+        self.trainingDataResults[index].append(targetResult)
+
+    # Loads the vacabulary data localy into the neural network object.
+    # It matches the normal to the result ex.. ([0.1332112], 'hello')
+    # if [0.1332112] is passed in then it will be matched to the word 'hello'
+    def loadVocab(self, index, inNormal, inResult):
+        self._Vocabulary[index].append((inNormal, inResult))
+    # Uses the passed in vocabulary to convert the given normal back into a word
+    def _getFromVocab(self, inIdentifier, inNormal):
+        for index, i in enumerate(NaturalLanguageObject._Identifiers):
+            # get the index
+            if(inIdentifier == i):
+                # locate normal
+                for index2, val in enumerate(self._Vocabulary[index]):
+                    if(val[0] == inNormal):
+                        return val[1]
 
     # Fits the network to all of the data passed in
     def FitNetwork(self):
-        countItems = len(self.trainingDataResults)
-
-        self._fit(self.trainingData, self.trainingDataResults)
+        countItems = 0
+        # train all of the networks at once
+        for index, val in enumerate(self.trainingData):
+            if(len(self.trainingData[index]) > 0):
+                self._fit(index, self.trainingData[index], self.trainingDataResults[index])
+                countItems = countItems + len(self.trainingData[index])
+            else:
+                ConsoleOutput.printRed("No training data for vocab identifier: " + NaturalLanguageObject._Identifiers[index])
 
         ConsoleOutput.printGreen("Data successfully fitted to the vocabulary network.")
         ConsoleOutput.printGreen("Vectors: " + str(countItems))
@@ -89,10 +111,27 @@ class NNVocabulary:
         self.trainingData = None
         self.trainingDataResults = None
 
+    def _fit(self, index, dataVector, targetVector):
+        self._Networks[index].fit(np.asarray(dataVector, dtype="float"), np.asarray(targetVector, dtype="float"))
+
     # gets a prediction from the network with the given input
-    def getPrediction(self, inNormalisedData):
-        pred = self.clf.predict(inNormalisedData)
+    def getPrediction(self, inNormalisedData, inIdentifier):
+        for index, i in enumerate(NaturalLanguageObject._Identifiers):
+            # get the index
+            if(inIdentifier == i):
+                pred = self._Networks[index].predict(inNormalisedData)
         return float(round(pred[0], _MAX_DECIMAL_PLACES))
+    # Returns the predicted normal in the form of a word
+    def getPredictedWord(self, inNormalisedData, inIdentifier):
+        pred = self.getPrediction(inNormalisedData, inIdentifier)
+        return self._getFromVocab(inIdentifier, pred)
 
     def __init__(self):
-        self.clf = KNeighborsClassifier()
+        # Create a sperate neural network for each identifier
+        for index in range(0, len(NaturalLanguageObject._Identifiers)):
+            nn = KNeighborsClassifier()
+            self._Networks.append(nn)
+        # Create th etraining sets for the multiple neural networks
+        self.trainingData = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
+        self.trainingDataResults = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
+        self._Vocabulary = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]

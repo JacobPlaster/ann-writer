@@ -56,13 +56,14 @@ def Main():
     # the next word of the squence is used as the target, example
     # ["Harry", "sat", "on", "his"] - ["broomstick"] <-- target
     networkTrainer.loadSentenceStructureNormals()
-    networkTrainer.loadVocabularyNormals()
+    networkTrainer.loadVocabularyNormals(neuralNetworkV)
     # Pass the vectors into the network
     neuralNetworkSS.loadVectorsIntoNetwork(networkTrainer._TrainingSequenceSS, networkTrainer._TrainingTargetsSS)
     # Passs into vocab network here ****
 
     # Fit data
     neuralNetworkSS.FitNetwork()
+    neuralNetworkV.FitNetwork()
     # Fit to vocab network here ****
 
     # Use console argument "-ut" to activate
@@ -94,16 +95,16 @@ def Main():
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
     genSize = 30
-    initialInput = "The Macbook air"
+    initialInput = "why dont we"
     print(initialInput + " ", end="")
     initialInput = initialInput.split()
     # generate a sentence of genSize
     for index in range(0, genSize):
         nlO = NaturalLanguageObject(initialInput)
         testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
-        testPred = nlO.tokeniseNormals([testPred])
-        word = str(networkTrainer.getRandomWordFromIdentifier(testPred[0]))
-        print("" + word + " ", end="")
+        testPredToken = nlO.tokeniseNormals([testPred])
+        word = neuralNetworkV.getPredictedWord(testPred, testPredToken[0])
+        print("" + str(word) + " ", end="")
         del initialInput[0]
         initialInput.append(word)
     print("\n")

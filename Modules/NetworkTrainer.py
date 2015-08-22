@@ -14,9 +14,8 @@ class NetworkTrainer:
     _TrainingTargetsV = []
     # Typical values
     _TrainRangeSS = 3
-    _TrainRangeV = 2
+    _TrainRangeV = 1
     _nloTextData = None
-    _Vocabulary = None
 
 
     def loadTextFromFile(self, InputFile):
@@ -64,38 +63,39 @@ class NetworkTrainer:
         print("Data normalised successful...")
         return True
 
-    def loadVocabularyNormals(self):
+    def loadVocabularyNormals(self, NeuralNetworkV):
         if(self._nloTextData != None):
             ConsoleOutput.printGreen("Beginning sentence vocabulary parse...")
             # create vocabulary with the same amount of rows as the identifiers
             vocabulary = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
             # Build a vocabulary from the input data
-            for wordIndex, x in enumerate(self._nloTextData.sentenceTokenList):
+            # all elements apart from first few
+            for wordIndex, x in enumerate(self._nloTextData.sentenceTokenList[self._TrainRangeV:]):
                 wordToken = self._nloTextData.sentenceTokenList[wordIndex][1]
                 word = self._nloTextData.sentenceTokenList[wordIndex][0]
+                prevTokenNormal = self._nloTextData.sentenceNormalised[wordIndex-1]
                 # find which colum to insert into
                 for iIndex, iden in enumerate(NaturalLanguageObject._Identifiers):
                     # find colum
                     if(iden == wordToken):
                         #find if word already exists in rows
                         if word not in vocabulary[iIndex]:
-                            vocabulary[iIndex].append(word)
+                            vocabulary[iIndex].append((prevTokenNormal, word))
 
-            self._Vocabulary = vocabulary
-
-            # print most populer
-            #for index, i in enumerate(vocabulary):
-                #print(NaturalLanguageObject._Identifiers[index] + " With " + str(len(vocabulary[index])))
+            for index, val in enumerate(vocabulary):
+                # Calculate the normals for each row
+                normalisedUnit = 0
+                if(len(vocabulary[index])>0):
+                    normalisedUnit = 2/len(vocabulary[index])
+                for index2, vector in enumerate(vocabulary[index]):
+                    tmpNormal = round(float(((index2+1) * normalisedUnit)), 10)
+                    word = vector[1]
+                    prevNormal = vector[0]
+                    # pass into the neural network fit buffer
+                    NeuralNetworkV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
+                    NeuralNetworkV.loadVocab(index, tmpNormal, word)
         else:
             raise ValueError('Need to load data via loadFromTextFile() before calling function.')
-
-    def getRandomWordFromIdentifier(self, indentifier):
-        for index, val in enumerate(NaturalLanguageObject._Identifiers):
-            if(indentifier == NaturalLanguageObject._Identifiers[index]):
-                # return random word from dictionary
-                return self._Vocabulary[index][randint(0, len(self._Vocabulary[index])-1)]
-
-
 
 
     def __init__(self, inTrainRangeSS, inTrainRangeV):
