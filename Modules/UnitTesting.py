@@ -29,16 +29,72 @@ testingParaHarryPotter = ['he', 'stopped', 'there', 'to', 'enjoy', 'the', 'effec
            'to', 'smile', ',', 'to', 'keep', 'his', 'own', 'face', 'as', 'blank', 'as', 'possible', '.']
 
 class UnitTester:
-    neuralNetwork = None
-    VectorSize = 3
+    neuralNetworkSS = None
+    neuralNetworkV = None
+    VectorSizeSS = 3
+    VectorSizeV = 1
+    _TestingPara = testingParaMacbookBlog
+    _TestingParaNlo = NaturalLanguageObject(_TestingPara)
 
-    def TestVocabulary():
-        print("Testing Vocabulary...")
+    def TestVocabulary(self):
+        #testingPara = testingParaHarryPotter
+        testingPara = self._TestingPara
+        passedTests = []
+        nonFatalTests = []
+        failedTests = []
+
+        # Build a test sequence form each word
+        for index, val in enumerate(self._TestingParaNlo.sentenceTokenList[1:]):
+            prevWord = self._TestingParaNlo.sentenceTokenList[index-1][0]
+            prevWordToken = self._TestingParaNlo.sentenceTokenList[index-1][1]
+            prevWordTokenNormal = self._TestingParaNlo.sentenceNormalised[index-1]
+
+            curWord = val[0]
+            curToken = val[1]
+            curNormal = self._TestingParaNlo.sentenceNormalised[index]
+
+            prediction = self.neuralNetworkV.getPredictedWord(prevWordTokenNormal, curToken)
+            probList = self.neuralNetworkV.getPredictionProbability(prevWordTokenNormal, curToken)
+
+            prob = 0
+            for val in probList[0]:
+                if(val > prob):
+                    prob = val
+
+            if(str(curWord.lower()) == str(prediction).lower()):
+                passedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"   " + str(prob*100) + "%")
+            else:
+                if(prob < 0.2):
+                    failedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"    " + str(prob*100) + "%")
+                else:
+                    nonFatalTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"    " + str(prob*100) + "%")
+
+        # print results
+        print("\n")
+        print("********** TestSentenceStructuring() **********")
+        print("\n")
+
+        ConsoleOutput.printUnderline("Failed Tests: (" + str(len(failedTests)) + "/" + str(len(testingPara)) + ")")
+        for val in failedTests:
+            ConsoleOutput.printRed(val)
+        print("\n")
+        ConsoleOutput.printUnderline("Non-Fatal failed Tests: (" + str(len(nonFatalTests)) + "/" + str(len(testingPara)) + ")")
+        for val in nonFatalTests:
+            ConsoleOutput.printYellow(val)
+        print("\n")
+        ConsoleOutput.printUnderline("Passed Tests: (" + str(len(passedTests)) + "/" + str(len(testingPara)) + ")")
+        for val in passedTests:
+            ConsoleOutput.printGreen(val)
+        print("\n")
+
+        ConsoleOutput.printYellow("Passed: " + str(len(passedTests)) + "   Non-Fatals: " + str(len(nonFatalTests)) + "   Fails: " + str(len(failedTests)))
+        print("\n")
+
 
     def TestSentenceStructuring(self):
 
         #testingPara = testingParaHarryPotter
-        testingPara = testingParaMacbookBlog
+        testingPara = self._TestingPara
         passedTests = []
         nonFatalTests = []
         failedTests = []
@@ -51,15 +107,15 @@ class UnitTester:
             tmpTestSeq = []
             target = None
             # grab the next 3 words after
-            if(index < len(testingPara)-(self.VectorSize+1)):
-                for index2 in range(0, self.VectorSize):
+            if(index < len(testingPara)-(self.VectorSizeSS+1)):
+                for index2 in range(0, self.VectorSizeSS):
                     tmpTestSeq.append(testingPara[index+index2])
-                target = testingPara[index+self.VectorSize]
+                target = testingPara[index+self.VectorSizeSS]
                 # convert to natural language object
                 nloTester = NaturalLanguageObject(tmpTestSeq)
                 nloTarget = NaturalLanguageObject([target])
                 # get nerual network prediction
-                normalPred = self.neuralNetwork.getPrediction(nloTester.sentenceNormalised)
+                normalPred = self.neuralNetworkSS.getPrediction(nloTester.sentenceNormalised)
                 prediction = str(nloTester.tokeniseNormals([normalPred]))
                 comp = str(nloTarget.sentenceTags)
 
@@ -70,7 +126,7 @@ class UnitTester:
                 #if first letters match, this means 'NN' will match with 'NNS'
                 if(prediction[2] == comp[2]):
                     #filter for probability
-                    probList = self.neuralNetwork.getPredictionProbability(nloTester.sentenceNormalised)
+                    probList = self.neuralNetworkSS.getPredictionProbability(nloTester.sentenceNormalised)
                     prob = 0
                     for val in probList[0]:
                         if(val > prob):
@@ -78,7 +134,7 @@ class UnitTester:
                     passedTests.append(str(nloTester.sentenceTokenList) + "   Target: " + str(nloTarget.sentenceTokenList) + "    Prediction: "
                     + prediction  + " " +str(prob*100) + "%")
                 else:
-                    probList = self.neuralNetwork.getPredictionProbability(nloTester.sentenceNormalised)
+                    probList = self.neuralNetworkSS.getPredictionProbability(nloTester.sentenceNormalised)
                     prob = 0
                     for val in probList[0]:
                         if(val > prob):
@@ -119,6 +175,8 @@ class UnitTester:
         print("\n")
 
 
-    def __init__(self, inNeuralNetwork, inVectorSize):
-        self.neuralNetwork = inNeuralNetwork
-        self.VectorSize = inVectorSize
+    def __init__(self, inNeuralNetworkSS, inNeuralNetworkV, inVectorSizeSS, inVectorSizeV):
+        self.neuralNetworkSS = inNeuralNetworkSS
+        self.neuralNetworkV = inNeuralNetworkV
+        self.VectorSizeSS = inVectorSizeSS
+        self.VectorSizeV = inVectorSizeV

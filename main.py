@@ -30,14 +30,18 @@ _TrainRangeSS = 3
 _TrainRangeV = 1
 
 def Main():
-    _isUnitTesting = False
+    _isUnitTestingSS = False
+    _isUnitTestingV = False
     _recursiveInput = False
     consoleInArgs = sys.argv[1:]
     # check input arguments
     for index, val in enumerate(consoleInArgs):
         # Runs the unit testing module on initiation
-        if(val == "-ut"):
-            _isUnitTesting = True
+        if(val == "-utss"):
+            _isUnitTestingSS = True
+        # Unit testing for the vocabulary network
+        elif(val == "-utv"):
+            _isUnitTestingV = True
         # Allows for the recursive user input loop to run
         elif(val == "-ri"):
             _recursiveInput = True
@@ -66,18 +70,18 @@ def Main():
     neuralNetworkV.FitNetwork()
     # Fit to vocab network here ****
 
-    # Use console argument "-ut" to activate
-    if(_isUnitTesting):
-        #testing
-        uTester = UnitTester(neuralNetworkSS, _TrainRangeSS)
+    # Use console argument "-utss" to activate
+    #testing
+    uTester = None
+    if(_isUnitTestingSS):
+        if(uTester == None):
+            uTester = UnitTester(neuralNetworkSS, neuralNetworkV, _TrainRangeSS, _TrainRangeV)
         uTester.TestSentenceStructuring()
-        '''
-        tmpNl = NaturalLanguageObject(['looked', 'at', 'ron', 'and'])
-        print('\n')
-        print('Input: ' + str(tmpNl.sentenceTokenList))
-        print('Prediction: ' + str(tmpNl.tokeniseNormals(neuralNetwork.getPrediction(tmpNl.sentenceNormalised))))
-        print('\n')
-        '''
+    # use console argument "-utv" to activate
+    if(_isUnitTestingV):
+        if(uTester == None):
+            uTester = UnitTester(neuralNetworkSS, neuralNetworkV, _TrainRangeSS, _TrainRangeV)
+        uTester.TestVocabulary()
 
     # Use console argument "-ri" to activate
     if(_recursiveInput):
@@ -95,18 +99,21 @@ def Main():
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
     genSize = 30
-    initialInput = "why dont we"
+    initialInput = "The macbook air"
     print(initialInput + " ", end="")
     initialInput = initialInput.split()
     # generate a sentence of genSize
     for index in range(0, genSize):
-        nlO = NaturalLanguageObject(initialInput)
-        testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
-        testPredToken = nlO.tokeniseNormals([testPred])
-        word = neuralNetworkV.getPredictedWord(testPred, testPredToken[0])
-        print("" + str(word) + " ", end="")
-        del initialInput[0]
+        nlo = NaturalLanguageObject(initialInput)
+        # since nlo will always be the right size, we can use that variable
+        predToke = neuralNetworkSS.getPrediction(nlo.sentenceNormalised)
+        nextToke = nlo.tokeniseNormals([predToke])
+        # now we have the next toke in the sentence, convert that to word
+        word = neuralNetworkV.getPredictedWord(nlo.sentenceNormalised[-1], nextToke[0])
+        print(str(word) + " ", end="")
         initialInput.append(word)
+        # maintain a size of 'genSize'
+        del initialInput[0]
     print("\n")
     # Reset console back to original state
     deinit()

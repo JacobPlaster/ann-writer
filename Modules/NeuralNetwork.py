@@ -107,6 +107,7 @@ class NNVocabulary:
 
         ConsoleOutput.printGreen("Data successfully fitted to the vocabulary network.")
         ConsoleOutput.printGreen("Vectors: " + str(countItems))
+        print("\n")
 
         self.trainingData = None
         self.trainingDataResults = None
@@ -114,13 +115,32 @@ class NNVocabulary:
     def _fit(self, index, dataVector, targetVector):
         self._Networks[index].fit(np.asarray(dataVector, dtype="float"), np.asarray(targetVector, dtype="float"))
 
-    # gets a prediction from the network with the given input
+    # gets a prediction from the network with the given inputc
     def getPrediction(self, inNormalisedData, inIdentifier):
+        pred = 0
         for index, i in enumerate(NaturalLanguageObject._Identifiers):
             # get the index
             if(inIdentifier == i):
-                pred = self._Networks[index].predict(inNormalisedData)
+                # if the vocabulary is empty for this index return 0
+                if(len(self._Vocabulary[index]) > 0):
+                    pred = self._Networks[index].predict(inNormalisedData)
+                else:
+                    return 0
+        if(pred == 0):
+            return 0
         return float(round(pred[0], _MAX_DECIMAL_PLACES))
+    # returns the probability of the prediction
+    def getPredictionProbability(self, inNormalisedData, inIdentifier):
+        pred = [[0]]
+        for index, i in enumerate(NaturalLanguageObject._Identifiers):
+            # get the index
+            if(inIdentifier == i):
+                # if the vocabulary is empty for this index return 0
+                if(len(self._Vocabulary[index]) > 0):
+                    return self._Networks[index].predict_proba(inNormalisedData)
+                else:
+                    return pred
+        return pred
     # Returns the predicted normal in the form of a word
     def getPredictedWord(self, inNormalisedData, inIdentifier):
         pred = self.getPrediction(inNormalisedData, inIdentifier)
