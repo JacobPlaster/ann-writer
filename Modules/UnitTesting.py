@@ -33,7 +33,7 @@ class UnitTester:
     neuralNetworkV = None
     VectorSizeSS = 3
     VectorSizeV = 1
-    _TestingPara = testingParaMacbookBlog
+    _TestingPara = testingParaHarryPotter
     _TestingParaNlo = NaturalLanguageObject(_TestingPara)
 
     def TestVocabulary(self):

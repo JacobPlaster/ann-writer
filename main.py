@@ -23,8 +23,8 @@ from Modules.NetworkTrainer import NetworkTrainer
 from Modules.UnitTesting import UnitTester
 from colorama import init, deinit
 
-_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
-#_TrainingDataInputFile = "Datasets/HarryPotter(x1737).txt"
+#_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
+_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
 # Amount of vectors per a train statement
 _TrainRangeSS = 3
 _TrainRangeV = 1
@@ -99,7 +99,7 @@ def Main():
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
     genSize = 30
-    initialInput = "The macbook air"
+    initialInput = "Harry"
     print(initialInput + " ", end="")
     initialInput = initialInput.split()
     # generate a sentence of genSize
