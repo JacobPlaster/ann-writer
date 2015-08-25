@@ -68,6 +68,7 @@ class NetworkTrainer:
             ConsoleOutput.printGreen("Beginning sentence vocabulary parse...")
             # create vocabulary with the same amount of rows as the identifiers
             vocabulary = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
+            tempNonUniqueVocab = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
             # Build a vocabulary from the input data
             # all elements apart from first few
             for wordIndex, x in enumerate(self._nloTextData.sentenceTokenList[self._TrainRangeV:]):
@@ -78,10 +79,15 @@ class NetworkTrainer:
                 for iIndex, iden in enumerate(NaturalLanguageObject._Identifiers):
                     # find colum
                     if(iden == wordToken):
-                        #find if word already exists in rows
-                        if word not in vocabulary[iIndex]:
+                        #find if combination of identifier and word already exist
+                        if (prevTokenNormal, word) not in vocabulary[iIndex]:
+                            # unique sequences will be stored in the vocabulary for lookups
+                            # when converting from normals back into words
                             vocabulary[iIndex].append((prevTokenNormal, word))
-
+                        else:
+                            # get the non-unique combinations (purely for training)
+                            tempNonUniqueVocab[iIndex].append((prevTokenNormal, word))
+            # Use unique sequences to generate normals
             for index, val in enumerate(vocabulary):
                 # Calculate the normals for each row
                 normalisedUnit = 0
@@ -91,9 +97,15 @@ class NetworkTrainer:
                     tmpNormal = round(float(((index2+1) * normalisedUnit)), 10)
                     word = vector[1]
                     prevNormal = vector[0]
-                    # pass into the neural network fit buffer
+                    # pass into the neural network fit buffer (THESE ARE THE UNIQUE COMBINATIONS)
                     NeuralNetworkV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
                     NeuralNetworkV.loadVocab(index, tmpNormal, word)
+                    # check non-unique for same sequence
+                    for iNU, nonUniqueVal in enumerate(tempNonUniqueVocab[index]):
+                        # if there are non-unique sequences then add to training
+                        if (prevNormal, word) == tempNonUniqueVocab[index][iNU]:
+                            NeuralNetworkV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
+                            NeuralNetworkV.loadVocab(index, tmpNormal, word)
         else:
             raise ValueError('Need to load data via loadFromTextFile() before calling function.')
 

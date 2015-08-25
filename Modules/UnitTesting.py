@@ -66,6 +66,8 @@ class UnitTester:
             else:
                 if(prob < 0.2):
                     failedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"    " + str(prob*100) + "%")
+                elif (prob > 0.6):
+                    passedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"   " + str(prob*100) + "%")
                 else:
                     nonFatalTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"    " + str(prob*100) + "%")
 
