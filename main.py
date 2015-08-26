@@ -32,9 +32,9 @@ def Main():
     _isUnitTestingSS = False
     _isUnitTestingV = False
     _recursiveInput = False
-    _TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
+    #_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
     #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
-    #_TrainingDataInputFile = "Datasets/HarryPotter(large).txt"
+    _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
 
     consoleInArgs = sys.argv[1:]
     # check input arguments
@@ -106,7 +106,7 @@ def Main():
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
     genSize = 30
-    initialInput = "Wizards sometimes do"
+    initialInput = "wizards sometimes do"
     print(initialInput + " ", end="")
     initialInput = initialInput.split()
     # generate a sentence of genSize
