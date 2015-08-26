@@ -24,8 +24,6 @@ from Modules.UnitTesting import UnitTester
 from colorama import init, deinit
 from Modules.ConsoleOutput import ConsoleOutput
 
-_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
-#_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
 # Amount of vectors per a train statement
 _TrainRangeSS = 3
 _TrainRangeV = 1
@@ -34,6 +32,10 @@ def Main():
     _isUnitTestingSS = False
     _isUnitTestingV = False
     _recursiveInput = False
+    _TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
+    #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
+    #_TrainingDataInputFile = "Datasets/HarryPotter(large).txt"
+
     consoleInArgs = sys.argv[1:]
     # check input arguments
     for index, val in enumerate(consoleInArgs):
@@ -104,7 +106,7 @@ def Main():
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
     genSize = 30
-    initialInput = "why dont we"
+    initialInput = "Wizards sometimes do"
     print(initialInput + " ", end="")
     initialInput = initialInput.split()
     # generate a sentence of genSize
