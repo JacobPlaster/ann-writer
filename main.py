@@ -22,6 +22,7 @@ from Modules.NeuralNetwork import NNSentenceStructure, NNVocabulary
 from Modules.NetworkTrainer import NetworkTrainer
 from Modules.UnitTesting import UnitTester
 from colorama import init, deinit
+from Modules.ConsoleOutput import ConsoleOutput
 
 _TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
 #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
@@ -45,6 +46,10 @@ def Main():
         # Allows for the recursive user input loop to run
         elif(val == "-ri"):
             _recursiveInput = True
+        elif(len(consoleInArgs) >= index+1):
+            if(val == "-td"):
+                _TrainingDataInputFile = consoleInArgs[index+1]
+                ConsoleOutput.printGreen("Training data load locaiton changed to: \"" + _TrainingDataInputFile + "\"")
         else:
             raise ValueError('Un-recognized console argument: ' + val)
     # Initialise colorama cross-platform console logging
@@ -99,7 +104,7 @@ def Main():
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
     genSize = 30
-    initialInput = "Harry looked at"
+    initialInput = "why dont we"
     print(initialInput + " ", end="")
     initialInput = initialInput.split()
     # generate a sentence of genSize
