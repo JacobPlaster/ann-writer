@@ -32,8 +32,6 @@ def Main():
     _isUnitTestingSS = False
     _isUnitTestingV = False
     _recursiveInput = False
-    #_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
-    #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
     _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
     _TestSentence = ""
     _TestSequenceGenSize = 30
@@ -48,13 +46,16 @@ def Main():
         elif(val == "-utv"):
             _isUnitTestingV = True
         elif(len(consoleInArgs) >= index+1):
+            # specify training data location
             if(val == "-td"):
                 _TrainingDataInputFile = consoleInArgs[index+1]
                 ConsoleOutput.printGreen("Training data load locaiton changed to: \"" + _TrainingDataInputFile + "\"")
+            # give a generation sentence input
             elif(val == "-ts"):
                 _TestSentence = consoleInArgs[index+1]
                 if(len(_TestSentence.split()) != _TrainRangeSS):
                     raise ValueError('Test sequence must be the same length as the vector training size. (' + str(_TrainRangeSS) + ')')
+            # set the amount of words generated after input
             elif(val == "-tsc"):
                 _TestSequenceGenSize = int(consoleInArgs[index+1])
         else:
