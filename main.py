@@ -60,6 +60,8 @@ def Main():
                 ConsoleOutput.printGreen("Training data load locaiton changed to: \"" + _TrainingDataInputFile + "\"")
             elif(val == "-ts"):
                 _TestSentence = consoleInArgs[index+1]
+                if(len(_TestSentence.split()) != _TrainRangeSS):
+                    raise ValueError('Test sequence must be the same length as the vector training size. (' + str(_TrainRangeSS) + ')')
         else:
             raise ValueError('Un-recognized console argument: ' + val)
     # Initialise colorama cross-platform console logging
