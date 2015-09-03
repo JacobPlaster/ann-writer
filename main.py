@@ -36,6 +36,7 @@ def Main():
     #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
     _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
     _TestSentence = ""
+    _TestSequenceGenSize = 30
 
     consoleInArgs = sys.argv[1:]
     # check input arguments
@@ -46,9 +47,6 @@ def Main():
         # Unit testing for the vocabulary network
         elif(val == "-utv"):
             _isUnitTestingV = True
-        # Allows for the recursive user input loop to run
-        elif(val == "-ri"):
-            _recursiveInput = True
         elif(len(consoleInArgs) >= index+1):
             if(val == "-td"):
                 _TrainingDataInputFile = consoleInArgs[index+1]
@@ -57,6 +55,8 @@ def Main():
                 _TestSentence = consoleInArgs[index+1]
                 if(len(_TestSentence.split()) != _TrainRangeSS):
                     raise ValueError('Test sequence must be the same length as the vector training size. (' + str(_TrainRangeSS) + ')')
+            elif(val == "-tsc"):
+                _TestSequenceGenSize = int(consoleInArgs[index+1])
         else:
             raise ValueError('Un-recognized console argument: ' + str(val))
     # Initialise colorama cross-platform console logging
@@ -95,23 +95,8 @@ def Main():
             uTester = UnitTester(neuralNetworkSS, neuralNetworkV, _TrainRangeSS, _TrainRangeV)
         uTester.TestVocabulary()
 
-    # Use console argument "-ri" to activate
-    if(_recursiveInput):
-        while(True):
-            inputIn = input("Enter " + str(_TrainRangeSS) + " words: ")
-            inputSen = inputIn.split()
-            if(len(inputSen) == _TrainRangeSS):
-                nlO = NaturalLanguageObject(inputSen)
-                print(str(nlO.sentenceTokenList))
-                testPred = neuralNetworkSS.getPrediction(nlO.sentenceNormalised)
-                testPred = nlO.tokeniseNormals([testPred])
-                print("Predicted: " + str(testPred))
-                print(inputIn + " " + str(networkTrainer.getRandomWordFromIdentifier(testPred[0])))
-            else:
-                print("Testing requires an input range of: " + str(_TrainRangeSS))
-
     if(_TestSentence != ""):
-        genSize = 30
+        genSize = _TestSequenceGenSize
         initialInput = _TestSentence
         print(initialInput + " ", end="")
         initialInput = initialInput.split()
