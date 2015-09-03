@@ -1,10 +1,9 @@
 # Artificial Neural-network writer
-====
 A neural network that utilises sk-learn, numpy and nltk in an attempt to generate text in the style of any given training data. Written in python3.
 <br>
 <br>
 ### Installing
-====
+------
 ```bash
 pip3 install -U scikit-learn
 pip3 install -U numpy
@@ -12,7 +11,7 @@ pip3 install -U nltk
 ```
 <br>
 ### Usage
-====
+------
 Run the program:
 ```bash
 python3 main.py
@@ -45,7 +44,7 @@ python3 main.py -ts "today i will" -tsc 10 -td "Datasets/HarryPotter(xxlarge).tx
 <br>
 
 ### Datasets
-====
+------
 Includes 6 datasets:
 ```bash
 HarryPotter(small).txt = 346 training vectors
@@ -64,6 +63,7 @@ It is extremely easy to add your own data set, just make sure that it is in the 
 python3 main.py -td "Datasets/your_set.txt"
 ```
 Dataset has to contain more words than the training range (default = 3).
+<br>
 <br>
 
 #### [Go here](http://www.jacobplaster.net/artificial-neural-network-writer) to see results!
