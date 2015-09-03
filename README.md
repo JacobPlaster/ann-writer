@@ -9,7 +9,6 @@ pip3 install -U numpy
 pip3 install -U nltk
 ```
 <br>
-<br>
 ### Usage
 Run the program:
 ```bash
@@ -42,6 +41,25 @@ Example usage scenario:
 python3 main.py -ts "today i will" -tsc 10 -td "Datasets/HarryPotter(xxlarge).txt"
 ```
 <br>
+
+### Datasets
+Includes 6 datasets:
+```bash
+HarryPotter(small).txt = 346 training vectors
+HarryPotter(medium).txt = 2500 training vectors
+HarryPotter(large).txt = 4550 training vectors
+HarryPotter(xlarge).txt = 11429 training vectors
+HarryPotter(xxlarge).txt = 15829 training vectors
+
+MacbookAirBlog(large).txt = 3576 training vectors
+```
+Change the data sets with the '-td' command. The larger the data set, the longer the program will take to fit and produce a result. The ability to load an already fitted network has not been implemented yet, so the program has to run the initial fit every time.<br>
+The Harry potter data sets have been taken from the book directly and the macbook dataset was taken from a random blog.
 <br>
+It is extremely easy to add your own data set, just make sure that it is in the form of a text blob (see provided datasets). And then simply use the command line to select your dataset
+```bash
+python3 main.py -td "Datasets/your_set.txt"
+```
+Dataset has to contain more words than the training range (default = 3).
 
 To read more go to my [blog post](http://www.jacobplaster.net/artificial-neural-network-writer). Here I show multiple text generations with different training data sets and how accurate the program is at impersonating the training data.
