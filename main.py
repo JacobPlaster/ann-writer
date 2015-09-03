@@ -32,19 +32,25 @@ def Main():
     _isUnitTestingSS = False
     _isUnitTestingV = False
     _recursiveInput = False
+    _log = False
     #_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
     #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
     _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
+    _TestSentence = ""
 
     consoleInArgs = sys.argv[1:]
     # check input arguments
     for index, val in enumerate(consoleInArgs):
+        if(val == "-l"):
+            _log = True
         # Runs the unit testing module on initiation
         if(val == "-utss"):
             _isUnitTestingSS = True
+            _log = True
         # Unit testing for the vocabulary network
         elif(val == "-utv"):
             _isUnitTestingV = True
+            _log = True
         # Allows for the recursive user input loop to run
         elif(val == "-ri"):
             _recursiveInput = True
@@ -52,6 +58,8 @@ def Main():
             if(val == "-td"):
                 _TrainingDataInputFile = consoleInArgs[index+1]
                 ConsoleOutput.printGreen("Training data load locaiton changed to: \"" + _TrainingDataInputFile + "\"")
+            elif(val == "-ts"):
+                _TestSentence = consoleInArgs[index+1]
         else:
             raise ValueError('Un-recognized console argument: ' + val)
     # Initialise colorama cross-platform console logging
@@ -105,23 +113,24 @@ def Main():
             else:
                 print("Testing requires an input range of: " + str(_TrainRangeSS))
 
-    genSize = 30
-    initialInput = "wizards sometimes do"
-    print(initialInput + " ", end="")
-    initialInput = initialInput.split()
-    # generate a sentence of genSize
-    for index in range(0, genSize):
-        nlo = NaturalLanguageObject(initialInput)
-        # since nlo will always be the right size, we can use that variable
-        predToke = neuralNetworkSS.getPrediction(nlo.sentenceNormalised)
-        nextToke = nlo.tokeniseNormals([predToke])
-        # now we have the next toke in the sentence, convert that to word
-        word = neuralNetworkV.getPredictedWord(nlo.sentenceNormalised[-1], nextToke[0])
-        print(str(word) + " ", end="")
-        initialInput.append(word)
-        # maintain a size of 'genSize'
-        del initialInput[0]
-    print("\n")
+    if(_TestSentence != ""):
+        genSize = 30
+        initialInput = _TestSentence
+        print(initialInput + " ", end="")
+        initialInput = initialInput.split()
+        # generate a sentence of genSize
+        for index in range(0, genSize):
+            nlo = NaturalLanguageObject(initialInput)
+            # since nlo will always be the right size, we can use that variable
+            predToke = neuralNetworkSS.getPrediction(nlo.sentenceNormalised)
+            nextToke = nlo.tokeniseNormals([predToke])
+            # now we have the next toke in the sentence, convert that to word
+            word = neuralNetworkV.getPredictedWord(nlo.sentenceNormalised[-1], nextToke[0])
+            print(str(word) + " ", end="")
+            initialInput.append(word)
+            # maintain a size of 'genSize'
+            del initialInput[0]
+        print("\n")
     # Reset console back to original state
     deinit()
 
