@@ -32,7 +32,6 @@ def Main():
     _isUnitTestingSS = False
     _isUnitTestingV = False
     _recursiveInput = False
-    _log = False
     #_TrainingDataInputFile = "Datasets/MacbookAirBlog(x3576).txt"
     #_TrainingDataInputFile = "Datasets/HarryPotter(x4546).txt"
     _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
@@ -41,16 +40,12 @@ def Main():
     consoleInArgs = sys.argv[1:]
     # check input arguments
     for index, val in enumerate(consoleInArgs):
-        if(val == "-l"):
-            _log = True
         # Runs the unit testing module on initiation
         if(val == "-utss"):
             _isUnitTestingSS = True
-            _log = True
         # Unit testing for the vocabulary network
         elif(val == "-utv"):
             _isUnitTestingV = True
-            _log = True
         # Allows for the recursive user input loop to run
         elif(val == "-ri"):
             _recursiveInput = True
@@ -63,7 +58,7 @@ def Main():
                 if(len(_TestSentence.split()) != _TrainRangeSS):
                     raise ValueError('Test sequence must be the same length as the vector training size. (' + str(_TrainRangeSS) + ')')
         else:
-            raise ValueError('Un-recognized console argument: ' + val)
+            raise ValueError('Un-recognized console argument: ' + str(val))
     # Initialise colorama cross-platform console logging
     init()
 

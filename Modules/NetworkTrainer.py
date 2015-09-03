@@ -60,7 +60,7 @@ class NetworkTrainer:
             else:
                 raise ValueError('Need to load data via loadFromTextFile() before calling function.')
 
-        print("Data normalised successful...")
+        ConsoleOutput.printGreen("Data normalised successful...")
         return True
 
     def loadVocabularyNormals(self, NeuralNetworkV):

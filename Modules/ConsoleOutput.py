@@ -7,16 +7,23 @@ ENDC = '\033[0m'
 BOLD = '\033[1m'
 UNDERLINE = '\033[4m'
 
+_IsLogging = True
+
 class ConsoleOutput:
     # prints to the console in a color
 
     def printYellow(inOutput):
-        print(WARNING + inOutput + ENDC)
+        if(_IsLogging):
+            print(WARNING + inOutput + ENDC)
     def printGreen(inOutput):
-        print(OKGREEN + inOutput + ENDC)
+        if(_IsLogging):
+            print(OKGREEN + inOutput + ENDC)
     def printUnderline(inOutput):
-        print(UNDERLINE + inOutput + ENDC)
+        if(_IsLogging):
+            print(UNDERLINE + inOutput + ENDC)
     def printRed(inOutput):
-        print(FAIL + inOutput + ENDC)
+        if(_IsLogging):
+            print(FAIL + inOutput + ENDC)
     def printBold(inOutput):
-        print(BOLD + inOutput + ENDC)
+        if(_IsLogging):
+            print(BOLD + inOutput + ENDC)
