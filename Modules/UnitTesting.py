@@ -1,4 +1,4 @@
-from Modules.NeuralNetwork import NNSentenceStructure
+from Modules.MachineLearning import NNSentenceStructure
 from Modules.NaturalLanguage import NaturalLanguageObject
 from Modules.ConsoleOutput import ConsoleOutput
 from sklearn.metrics import accuracy_score
@@ -8,7 +8,7 @@ testingParaMacbookBlog = ['The', '12-inch', 'Retina', 'MacBook', 'is', 'Apple', 
  'latest', 'and', 'greatest', 'notebook', ',', 'and', 'will', 'very', 'likely',
   'replace', 'the', 'MacBook', 'Air', 'entirely', 'once', 'Apple', 'is', 'able',
    'to', 'bring', 'its', 'costs', 'down', 'enough', ',', 'though', 'this', 'may',
-    'take', 'a', 'few', 'generations', '.', 'It', "'", 's', 'fresh', 'on', 'the',
+    'take', 'a', 'few', 'generations', '.', 'It', 'is', 'fresh', 'on', 'the',
      'market', ',', 'having', 'been', 'released', 'on', 'April', '10', ',', 'and',
       'it', 'features', 'all', 'of', 'Apple', "'", 's', 'newest', 'technology', '.',
        'Like', 'to', 'have', 'the', 'coolest', 'product', 'on', 'the', 'market', '?',
@@ -28,12 +28,24 @@ testingParaHarryPotter = ['he', 'stopped', 'there', 'to', 'enjoy', 'the', 'effec
           'great', 'mustached', 'face', 'were', 'transparent', '.', 'Harry', 'tried', 'not',
            'to', 'smile', ',', 'to', 'keep', 'his', 'own', 'face', 'as', 'blank', 'as', 'possible', '.']
 
+testingParaHarryPotterSmall = ['he', 'stopped', 'there', 'to', 'enjoy', 'the', 'effect', 'of',
+ 'these', 'words', '.', 'he', 'could', 'almost', 'see', 'the', 'cogs', 'working',
+  'under', 'Uncle', 'Vernon’s', 'thick', ',', 'dark', ',', 'neatly', 'parted',
+   'hair', '.', 'If', 'he', 'tried', 'to', 'stop', 'Harry', 'writing', 'to', 'Sirius',
+    ',', 'Sirius', 'would', 'think', 'Harry', 'was', 'being', 'mistreated', '.']
+testingParaMacbookBlogSmall = ['The', '12-inch', 'Retina', 'MacBook', 'is', 'Apples',
+ 'latest', 'and', 'greatest', 'notebook', ',', 'and', 'will', 'very', 'likely',
+  'replace', 'the', 'MacBook', 'Air', 'entirely', 'once', 'Apple', 'is', 'able',
+   'to', 'bring', 'its', 'costs', 'down', 'enough', ',', 'though', 'this', 'may',
+    'take', 'a', 'few', 'generations', '.', 'It', 'is', 'fresh', 'on', 'the',
+     'market', ',']
+
 class UnitTester:
     neuralNetworkSS = None
     neuralNetworkV = None
     VectorSizeSS = 3
     VectorSizeV = 1
-    _TestingPara = testingParaHarryPotter
+    _TestingPara = testingParaMacbookBlogSmall
     _TestingParaNlo = NaturalLanguageObject(_TestingPara)
 
     def TestVocabulary(self):
@@ -64,7 +76,7 @@ class UnitTester:
             if(str(curWord.lower()) == str(prediction).lower()):
                 passedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"   " + str(prob*100) + "%")
             else:
-                if(prob < 0.2):
+                if(prob <= 0.2):
                     failedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"    " + str(prob*100) + "%")
                 elif (prob > 0.6):
                     passedTests.append("("+str(prevWord)+", "+str(prevWordToken)+")        Target: "+str(curWord)+"        Pred: "+str(prediction)+"   " + str(prob*100) + "%")

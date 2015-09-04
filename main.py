@@ -1,10 +1,10 @@
 '''
-    write artificial neural network will read attempt to impersonate the personality and
+    write artificial machine learning will read attempt to impersonate the personality and
     writing style of the publisher who wrote the text that the netwrok was trained on.
 
     We will try both shakespear, J.K Rowling and random stuff from the internet
 
-    The neural network will:
+    The program will:
     - Increment sentence by sentence through the training data
     - Convert sentence into parsed token sentence using nltk
     - train the sequences of the tokens
@@ -18,7 +18,7 @@
 import sys, getopt
 from _thread import *
 from Modules.NaturalLanguage import NaturalLanguageObject
-from Modules.NeuralNetwork import NNSentenceStructure, NNVocabulary
+from Modules.MachineLearning import NNSentenceStructure, NNVocabulary
 from Modules.NetworkTrainer import NetworkTrainer
 from Modules.UnitTesting import UnitTester
 from colorama import init, deinit
@@ -63,8 +63,8 @@ def Main():
     # Initialise colorama cross-platform console logging
     init()
 
-    neuralNetworkSS = NNSentenceStructure()
-    neuralNetworkV = NNVocabulary()
+    MLNetworkSS = NNSentenceStructure()
+    MLNetworkV = NNVocabulary()
     # Network trainer converts text data into normalized vectors that
     # can be passed into the networks
     networkTrainer = NetworkTrainer(_TrainRangeSS, _TrainRangeV)
@@ -73,14 +73,14 @@ def Main():
     # the next word of the squence is used as the target, example
     # ["Harry", "sat", "on", "his"] - ["broomstick"] <-- target
     networkTrainer.loadSentenceStructureNormals()
-    networkTrainer.loadVocabularyNormals(neuralNetworkV)
+    networkTrainer.loadVocabularyNormals(MLNetworkV)
     # Pass the vectors into the network
-    neuralNetworkSS.loadVectorsIntoNetwork(networkTrainer._TrainingSequenceSS, networkTrainer._TrainingTargetsSS)
+    MLNetworkSS.loadVectorsIntoNetwork(networkTrainer._TrainingSequenceSS, networkTrainer._TrainingTargetsSS)
     # Passs into vocab network here ****
 
     # Fit data
-    neuralNetworkSS.FitNetwork()
-    neuralNetworkV.FitNetwork()
+    MLNetworkSS.FitNetwork()
+    MLNetworkV.FitNetwork()
     # Fit to vocab network here ****
 
     # Use console argument "-utss" to activate
@@ -88,12 +88,12 @@ def Main():
     uTester = None
     if(_isUnitTestingSS):
         if(uTester == None):
-            uTester = UnitTester(neuralNetworkSS, neuralNetworkV, _TrainRangeSS, _TrainRangeV)
+            uTester = UnitTester(MLNetworkSS, MLNetworkV, _TrainRangeSS, _TrainRangeV)
         uTester.TestSentenceStructuring()
     # use console argument "-utv" to activate
     if(_isUnitTestingV):
         if(uTester == None):
-            uTester = UnitTester(neuralNetworkSS, neuralNetworkV, _TrainRangeSS, _TrainRangeV)
+            uTester = UnitTester(MLNetworkSS, MLNetworkV, _TrainRangeSS, _TrainRangeV)
         uTester.TestVocabulary()
 
     if(_TestSentence != ""):
@@ -105,10 +105,10 @@ def Main():
         for index in range(0, genSize):
             nlo = NaturalLanguageObject(initialInput)
             # since nlo will always be the right size, we can use that variable
-            predToke = neuralNetworkSS.getPrediction(nlo.sentenceNormalised)
+            predToke = MLNetworkSS.getPrediction(nlo.sentenceNormalised)
             nextToke = nlo.tokeniseNormals([predToke])
             # now we have the next toke in the sentence, convert that to word
-            word = neuralNetworkV.getPredictedWord(nlo.sentenceNormalised[-1], nextToke[0])
+            word = MLNetworkV.getPredictedWord(nlo.sentenceNormalised[-1], nextToke[0])
             print(str(word) + " ", end="")
             initialInput.append(word)
             # maintain a size of 'genSize'

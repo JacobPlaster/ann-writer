@@ -8,7 +8,7 @@ from Modules.NaturalLanguage import NaturalLanguageObject
 
 _MAX_DECIMAL_PLACES = 10
 
-# This neural network is dedicated to figuring out the structure of the sentece
+# This svm attempts to predict the next identifier in a sequence
 # And what comes next
 class NNSentenceStructure:
     trainingData = []
@@ -79,7 +79,7 @@ class NNVocabulary:
         self.trainingData[index].append([inNormalisedData])
         self.trainingDataResults[index].append(targetResult)
 
-    # Loads the vacabulary data localy into the neural network object.
+    # Loads the vacabulary data localy into the machine learning object.
     # It matches the normal to the result ex.. ([0.1332112], 'hello')
     # if [0.1332112] is passed in then it will be matched to the word 'hello'
     def loadVocab(self, index, inNormal, inResult):
@@ -147,11 +147,11 @@ class NNVocabulary:
         return self._getFromVocab(inIdentifier, pred)
 
     def __init__(self):
-        # Create a sperate neural network for each identifier
+        # Create a sperate network for each identifier
         for index in range(0, len(NaturalLanguageObject._Identifiers)):
             nn = KNeighborsClassifier()
             self._Networks.append(nn)
-        # Create th etraining sets for the multiple neural networks
+        # Create th etraining sets for the multiple svm networks
         self.trainingData = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
         self.trainingDataResults = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]
         self._Vocabulary = [list() for _ in range(len(NaturalLanguageObject._Identifiers))]

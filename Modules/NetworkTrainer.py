@@ -1,5 +1,5 @@
 from Modules.NaturalLanguage import NaturalLanguageObject
-from Modules.NeuralNetwork import NNSentenceStructure
+from Modules.MachineLearning import NNSentenceStructure
 from Modules.ConsoleOutput import ConsoleOutput
 from random import randint
 import re
@@ -52,7 +52,7 @@ class NetworkTrainer:
                         target = self._nloTextData.sentenceNormalised[index + i]
                         break
                     trainSequence.append(self._nloTextData.sentenceNormalised[index + i])
-                # Make sure we dont input the correct vector sizes into the neural network
+                # Make sure we dont input the correct vector sizes into the network
                 if(len(trainSequence) != self._TrainRangeSS):
                     raise ValueError('Train sequence vector not equal to _TrainRangeSS: ' + str(trainSequence))
                 self._TrainingSequenceSS.append(trainSequence)
@@ -63,7 +63,7 @@ class NetworkTrainer:
         ConsoleOutput.printGreen("Data normalised successful...")
         return True
 
-    def loadVocabularyNormals(self, NeuralNetworkV):
+    def loadVocabularyNormals(self, NNV):
         if(self._nloTextData != None):
             ConsoleOutput.printGreen("Beginning sentence vocabulary parse...")
             # create vocabulary with the same amount of rows as the identifiers
@@ -97,15 +97,15 @@ class NetworkTrainer:
                     tmpNormal = round(float(((index2+1) * normalisedUnit)), 10)
                     word = vector[1]
                     prevNormal = vector[0]
-                    # pass into the neural network fit buffer (THESE ARE THE UNIQUE COMBINATIONS)
-                    NeuralNetworkV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
-                    NeuralNetworkV.loadVocab(index, tmpNormal, word)
+                    # pass into the network fit buffer (THESE ARE THE UNIQUE COMBINATIONS)
+                    NNV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
+                    NNV.loadVocab(index, tmpNormal, word)
                     # check non-unique for same sequence
                     for iNU, nonUniqueVal in enumerate(tempNonUniqueVocab[index]):
                         # if there are non-unique sequences then add to training
                         if (prevNormal, word) == tempNonUniqueVocab[index][iNU]:
-                            NeuralNetworkV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
-                            NeuralNetworkV.loadVocab(index, tmpNormal, word)
+                            NNV.loadVectorsIntoNetworkByIndex(index, prevNormal, tmpNormal)
+                            NNV.loadVocab(index, tmpNormal, word)
         else:
             raise ValueError('Need to load data via loadFromTextFile() before calling function.')
 

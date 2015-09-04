@@ -32,7 +32,7 @@ class NaturalLanguageObject:
 
     # Convert each word into a number based on its tag
     # the Indentifiers are normalised between -1 and 1
-    # this is the scale that proves most effective when neural networking
+    # this is the scale that proves most effective when networking
     def normaliseSentenceTokens(self, inSentenceTokenList):
         normalisedSentence = []
         # unit product of all of the identifier
