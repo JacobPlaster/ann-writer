@@ -1,5 +1,5 @@
-# Artificial Neural-network writer
-A neural network that utilises sk-learn, numpy and nltk in an attempt to generate text in the style of any given training data. Written in python3.
+# Machine learning text generator
+Machine learning that utilises sk-learn, numpy and nltk in an attempt to generate text in the style of any given training data. Written in python3.
 <br>
 <br>
 ### Installing
@@ -66,5 +66,5 @@ Dataset has to contain more words than the training range (default = 3).
 <br>
 <br>
 
-#### [Go here](http://www.jacobplaster.net/artificial-neural-network-writer) to see results!
+#### [Go here](http://www.jacobplaster.net/artificial-machine-learning-writer) to see results!
 Here I show multiple text generations with different training data sets and how accurate the program is at impersonating the training data.
