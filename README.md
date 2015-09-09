@@ -37,6 +37,11 @@ Specify the number of words generated for given test sentence:
 ```bash
 python3 main.py -tsc <genCount>
 ```
+Output generated text to a file:
+```bash
+python3 main.py -of "<fileLocation>"
+```
+<br>
 Example usage scenario:
 ```bash
 python3 main.py -ts "today i will" -tsc 10 -td "Datasets/HarryPotter(xxlarge).txt"
