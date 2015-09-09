@@ -35,7 +35,7 @@ def Main():
     _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
     _TestSentence = ""
     _TestSequenceGenSize = 30
-    _OutputFile = ""
+    _OutputFile = None
 
     consoleInArgs = sys.argv[1:]
     # check input arguments
@@ -61,7 +61,7 @@ def Main():
                 _TestSequenceGenSize = int(consoleInArgs[index+1])
             # set the output file for the generated data to be printed to
             elif(val == "-of"):
-                _OutputFile = consoleInArgs[index+1]
+                _OutputFile = str(consoleInArgs[index+1])
                 ConsoleOutput.printGreen("Output generation location changed to: (" + consoleInArgs[index+1]+ ")")
         else:
             raise ValueError('Un-recognized console argument: ' + str(val))
@@ -102,6 +102,12 @@ def Main():
         uTester.TestVocabulary()
 
     if(_TestSentence != ""):
+        printToFile = False
+        f = None
+        # user has specified output location
+        if(_OutputFile != None):
+            printToFile = True
+            f = open(_OutputFile,'w')
         genSize = _TestSequenceGenSize
         initialInput = _TestSentence
         print(initialInput + " ", end="")
@@ -114,7 +120,11 @@ def Main():
             nextToke = nlo.tokeniseNormals([predToke])
             # now we have the next toke in the sentence, convert that to word
             word = MLNetworkV.getPredictedWord(nlo.sentenceNormalised[-1], nextToke[0])
-            print(str(word) + " ", end="")
+            # decide whether to print to file or console
+            if(printToFile):
+                f.write(str(word) + " ")
+            else:
+                print(str(word) + " ", end="")
             initialInput.append(word)
             # maintain a size of 'genSize'
             del initialInput[0]
