@@ -35,6 +35,7 @@ def Main():
     _TrainingDataInputFile = "Datasets/HarryPotter(xxlarge).txt"
     _TestSentence = ""
     _TestSequenceGenSize = 30
+    _OutputFile = ""
 
     consoleInArgs = sys.argv[1:]
     # check input arguments
@@ -58,6 +59,10 @@ def Main():
             # set the amount of words generated after input
             elif(val == "-tsc"):
                 _TestSequenceGenSize = int(consoleInArgs[index+1])
+            # set the output file for the generated data to be printed to
+            elif(val == "-of"):
+                _OutputFile = consoleInArgs[index+1]
+                ConsoleOutput.printGreen("Output generation location changed to: (" + consoleInArgs[index+1]+ ")")
         else:
             raise ValueError('Un-recognized console argument: ' + str(val))
     # Initialise colorama cross-platform console logging
