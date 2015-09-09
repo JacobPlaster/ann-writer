@@ -59,6 +59,7 @@ def Main():
             # set the amount of words generated after input
             elif(val == "-tsc"):
                 _TestSequenceGenSize = int(consoleInArgs[index+1])
+                ConsoleOutput.printGreen("Test sequence generation size changed to: " + str(_TestSequenceGenSize))
             # set the output file for the generated data to be printed to
             elif(val == "-of"):
                 _OutputFile = str(consoleInArgs[index+1])
@@ -110,7 +111,10 @@ def Main():
             f = open(_OutputFile,'w')
         genSize = _TestSequenceGenSize
         initialInput = _TestSentence
-        print(initialInput + " ", end="")
+        if(printToFile):
+            f.write(initialInput + " ")
+        else:
+            print(initialInput + " ", end="")
         initialInput = initialInput.split()
         # generate a sentence of genSize
         for index in range(0, genSize):
